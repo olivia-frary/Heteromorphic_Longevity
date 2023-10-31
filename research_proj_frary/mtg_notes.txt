@@ -1,0 +1,12 @@
+#### 10/30/23 ####
+get sequences from the data points that you have
+make a multi fasta 
+
+once you get multifasta you can go to mafft - in ips package ????
+see how mafft works with R
+
+can also upload mfasta into mafft with the auto strategy
+will output an alignment file
+then we can start building phylogenies. download fasta format
+
+fasta alignment to nexus
