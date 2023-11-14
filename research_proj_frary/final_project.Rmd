@@ -1,0 +1,197 @@
+---
+title: "Final Project"
+author: "Olivia Frary"
+output: rmdformats::material
+---
+
+<style>
+  .header-panel {
+    background-color: #F0F0F0;
+  }
+  
+  .pages h1 {
+    color: #F0F0F0;
+  }
+</style>
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+## Project Aim
+
+The purpose of this project was to consider the predictors of longevity in organisms across the tree of life. I was particularly interested in whether there is a correlation between the degree of difference in size of heterogametic sex chromosomes and lifespan. 
+
+---
+
+## Background information
+
+##### Heteromorphic Sex Chromosomes
+
+##### Why is there a reduced sex chromosome?
+
+---
+
+## Project Methods
+
+### Step 1: Find and load R packages relevant to dealing with genomic data
+
+```{r packages, echo=TRUE}
+# CRAN Packages
+library(phangorn)
+library(tidyverse)
+library(janitor)
+library(ape)
+library(dplyr)
+library(kableExtra)
+library(seqinr)
+library(reutils)
+library(shiny)
+
+# Bioconductor Packages
+library(Biostrings)
+library(DECIPHER)
+library(ggtree)
+library(msa)
+
+# Github Packages
+library(ggmsa)
+
+#### CONFIRM THE PACKAGES YOU ACTUALLY USED GIRL ####
+
+```
+
+### Step 2: Take a look at the data we have
+
+```{r load_data}
+df <- read_csv("analysis_data.csv") %>% 
+  clean_names %>% 
+  mutate_at('ln_r_rlifespan', as.numeric)
+```
+
+```{r check_out_data, echo=TRUE}
+head(df) %>% 
+  kable() %>% 
+  kable_classic(lightable_options="hover")
+glimpse(df)
+```
+
+Here, we are seeing a lot of NA's. We will sift through this data, first focusing on lifespan differences. Then we will do a tighter filter, including genome size differences
+which will leave us with 25 observations of the 13 variables. 
+
+### Step 3: Make some initial plots of the data we have
+
+#### <i>Initial Plots: Lifespan</i>
+
+Lets look at all the species we've gathered that have lifespan data for the sexes.
+
+```{r filter_lifespan}
+dl <- 
+df %>% 
+  filter(ln_r_rlifespan != "NA")
+```
+
+```{r plot_lifespan, echo=FALSE, fig.height=17, fig.width=8}
+dl %>% 
+  ggplot(aes(x=ln_r_rlifespan,y=species, color=sex_determination)) +
+  geom_point() +
+  geom_vline(xintercept = 0) +
+  labs(x="Difference in Lifespan", y="Species", title="Difference in Lifespan between Homogametic and Heterogametic Sexes") +
+  theme(axis.text.y = element_text(size=7))
+```
+
+The figure above shows the difference between the lifespan of homogametic and heterogametic sexes of certain species. The x-axis plots ln(homogametic lifespan/heterogametic lifespan) to normalize the results. If the point is above zero, the homogametic sex lives longer. If it is below zero, the heterogametic sex lives longer. The colors are based on whether the species' sex determination system is female or male heterogametic
+
+The following interactive version of this plot allows you to look at the data
+based on class, order, and family by changing the colors of the points. 
+
+```{r shiny_app, echo=FALSE}
+categoricalVars <- c("class","order","family","sex_determination")
+shinyApp(
+  
+  # Define UI for application that draws a histogram
+  ui <- fluidPage(
+  
+      # Application title
+      titlePanel("Longevity"),
+      plotOutput("diffPlot"), # this plot will come from the server
+      selectInput(
+        inputId = "color_select",
+        label = "Select Categorical Variable",
+        choices = categoricalVars
+      )
+      
+  ),
+  
+  # Define server logic required to draw a histogram
+  server <- function(input, output) {
+  
+      output$diffPlot <- renderPlot({
+          # generate bins based on input$bins from ui.R
+          ggplot(dl) + 
+            aes(x=as.numeric(ln_r_rlifespan),
+                y=species,
+                color=.data[[input$color_select]]) + 
+            geom_point() +
+          labs(x="Difference in Lifespan between Sexes") +
+          geom_vline(xintercept = 0) +
+          theme(
+            axis.text.y = element_blank(),
+            axis.ticks.y = element_blank()
+          )
+          # notes about plot: fix vertical spead, remove species with no data
+        })
+    },
+  
+  options = list(height = 650)
+    
+    # Run the application 
+    #shinyApp(ui = ui, server = server)
+
+)
+```
+
+The following plot is another way of illustrating how much of the difference in lifespan
+data resides <i>above</i> zero.
+
+```{r compare_sex}
+dl %>% 
+  ggplot(aes(x=sex_determination,y=ln_r_rlifespan, fill=sex_determination)) +
+  geom_violin() +
+  theme_minimal()
+```
+
+From our lifespan plots, we can see that the homogametic sex lives longer. However, this is not new information. We want to see if the difference in the size of the sex chromosomes contributes to the degree of difference in longevity. To do that we have to narrow our data again to the observations where genome size data was found.
+
+#### <i>Initial Plots: Genome Size</i>
+
+Let's now look at all the species who have both lifespan and genome size data.
+
+```{r filter_genome_size}
+dg <- 
+  dl %>% 
+  filter(gs_diff_mb != "NA")
+```
+
+```{r plot_genome_size}
+dg %>% 
+  ggplot(aes(x=ln_r_rlifespan, y=gs_diff_mb, color=sex_determination)) +
+  geom_smooth(method="lm",se=FALSE, color='gray', linetype=2, size=0.5) +
+  geom_point() +
+  labs(x="Difference in Lifespan", y="Difference in Genome Size") +
+  theme_minimal()
+```
+
+This plot reveals that most of the data we have is male heterogametic. There is only one female heterogametic data point. Also, the outliers make it appear as though there is a trend, but really it is hard to believe that there is actually a positive trend worth noting. From this plot, we can not conclude a correlation between the difference in size of the heterogametic sex chromosomes and the difference in lifespan between the sexes. 
+
+I want to collect more data on the longevity and differences in genome size of species so that I can further investigate a pattern. Until then, let's make some models based off the data we have and see if the predictions they make will give us a clue into a possible pattern.
+
+### Step 4: Attempt some models 
+
+### Step 5: Look at model predictions
+
+### Step 6: Build pipeline for a phylogeny
+
+Though I still have the goal of collecting more data, I wanted to build a method
+for creating a phylogenetic tree so that I could implement it in further analyes.
