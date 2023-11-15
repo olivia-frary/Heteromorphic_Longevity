@@ -1,19 +1,11 @@
 ---
 title: "Final Project"
 author: "Olivia Frary"
-output: rmdformats::material
+output:
+  html_document:
+    toc: true
+    toc_float: true
 ---
-
-<style>
-  .header-panel {
-    background-color: #F0F0F0;
-  }
-  
-  .pages h1 {
-    color: #F0F0F0;
-  }
-</style>
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
@@ -48,6 +40,9 @@ library(kableExtra)
 library(seqinr)
 library(reutils)
 library(shiny)
+library(modelr)
+library(MASS)
+library(easystats)
 
 # Bioconductor Packages
 library(Biostrings)
@@ -66,7 +61,7 @@ library(ggmsa)
 
 ```{r load_data}
 df <- read_csv("analysis_data.csv") %>% 
-  clean_names %>% 
+  janitor::clean_names() %>% 
   mutate_at('ln_r_rlifespan', as.numeric)
 ```
 
@@ -98,6 +93,7 @@ dl %>%
   geom_point() +
   geom_vline(xintercept = 0) +
   labs(x="Difference in Lifespan", y="Species", title="Difference in Lifespan between Homogametic and Heterogametic Sexes") +
+  theme_minimal()+
   theme(axis.text.y = element_text(size=7))
 ```
 
@@ -106,7 +102,7 @@ The figure above shows the difference between the lifespan of homogametic and he
 The following interactive version of this plot allows you to look at the data
 based on class, order, and family by changing the colors of the points. 
 
-```{r shiny_app, echo=FALSE}
+```{r shiny_app, eval=FALSE, include=FALSE}
 categoricalVars <- c("class","order","family","sex_determination")
 shinyApp(
   
@@ -172,6 +168,7 @@ Let's now look at all the species who have both lifespan and genome size data.
 dg <- 
   dl %>% 
   filter(gs_diff_mb != "NA")
+dg$gs_diff_mb <- ifelse(dg$sex_determination == "female heterogametic", -dg$gs_diff_mb, dg$gs_diff_mb)
 ```
 
 ```{r plot_genome_size}
@@ -184,6 +181,19 @@ dg %>%
 ```
 
 This plot reveals that most of the data we have is male heterogametic. There is only one female heterogametic data point. Also, the outliers make it appear as though there is a trend, but really it is hard to believe that there is actually a positive trend worth noting. From this plot, we can not conclude a correlation between the difference in size of the heterogametic sex chromosomes and the difference in lifespan between the sexes. 
+
+Lets quickly restrict the data to a subset of -100:100 Mb to see how the trendline behaves. 
+
+```{r plot_subset_genome_size}
+# ignoring the points that reside outside of 100Mb difference on each side.
+dg[dg$gs_diff_mb < 100 & dg$gs_diff_mb > -100,] %>% 
+  ggplot(aes(x=ln_r_rlifespan, y=gs_diff_mb, color=sex_determination)) +
+  geom_smooth(method="lm", se=FALSE , color='gray', linetype=2, size=0.5) +
+  geom_point() +
+  labs(x="Difference in Lifespan", y="Difference in Genome Size") +
+  theme_minimal()
+```
+
 
 I want to collect more data on the longevity and differences in genome size of species so that I can further investigate a pattern. Until then, let's make some models based off the data we have and see if the predictions they make will give us a clue into a possible pattern.
 

@@ -63,4 +63,4 @@ for(i in 1:length(spec$names)){
 # I am going to manually check on those that are further away from 600 bp and see if they have
 # more comparable options on genbank
 
-write.csv(accession_out,"accession_numbers.csv", row.names = FALSE)
+write.csv(accession_out,"accession/accession_numbers.csv", row.names = FALSE)

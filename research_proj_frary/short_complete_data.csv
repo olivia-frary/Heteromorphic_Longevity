@@ -1,6 +1,6 @@
 "class","order","family","species","sex_determination","heterogametic_lifespan","homogametic_lifespan","ln_r_rlifespan","population_source","lifespan_data_type","gs_female_mb","gs_male_mb","gs_diff_mb"
 "Arachnida","Ixodida","Ixodidae","Amblyomma cajennense","male heterogametic",641.2,682.5,0.06242111,"captive","mean",2982.9,2552.58,860.64
-"Aves","Passeriformes","Corvidae","Aphelocoma coerulescens","female heterogametic",4.82,4.52,-0.0642619,"wild","mean",1515.9,1545.24,-58.68
+"Aves","Passeriformes","Corvidae","Aphelocoma coerulescens","female heterogametic",4.82,4.52,-0.0642619,"wild","mean",1515.9,1545.24,58.68
 "Insecta","Blattodea","Blaberidae","Nauphoeta cinerea","male heterogametic",46.1,61.1,0.28169892,"captive","mean",5046.48,5026.92,39.12
 "Insecta","Blattodea","Blattidae","Periplaneta americana","male heterogametic",43.7,89.6,0.71800722,"captive","mean",3332,3338,-12
 "Insecta","Coleoptera","Chrysomelidae","Callosobruchus maculatus","male heterogametic",9.75,14.875,0.42241467,"captive","mean",1233,1202.4,61.2

@@ -6,26 +6,20 @@ library(ape)
 library(tidyverse)
 library(janitor)
 
-# create phylogenetic tree of all the species
-# add dots for the homogametic vs heterogametic lifespans
-
-gimme_fast <- readDNAStringSet("coi_seq_format.fasta")
-
-alignment <- AlignSeqs(gimme_fast)
-
-distance <- dist.dna(as.DNAbin(alignment))
-
+# create phylogenetic tree of the smaller subset of species
+gimme_fast <- readDNAStringSet("accession/coi_seq_format.fasta") # read in multi fasta as a string set
+alignment <- AlignSeqs(gimme_fast) # perform profile-to-profile alignment
+distance <- dist.dna(as.DNAbin(alignment)) # find pairwise distances
 tree <- njs(distance) # have to use this because there is studd missing from the distance matrix
+ape::write.tree(tree, file='tree/tree.txt') # write tree out in newick format
 
-ape::write.tree(tree, file='tree.txt')
-
-?njs()
+tree <- read.tree("tree/tree.txt")
 
 # is.rooted(tree)
 # tree <- root(tree, outgroup = 18, resolve.root = TRUE)
 # tree <- drop.tip(tree, tip = 18)
 
-options(ignore.negative.edge=TRUE)
+options(ignore.negative.edge=TRUE) # WHAT IS THIS - i did this to stop the tree going back on itself
 
 ggtree(tree, layout = "rectangular") +
   geom_tiplab(align=TRUE, linesize=.5)
@@ -33,12 +27,13 @@ ggtree(tree, layout = "rectangular") +
 tree2 <- drop.tip(tree, tip = 12) # removes pan troglodytes because we know that one is weird and wrong
 tree2 <- drop.tip(tree2, tip = 11) # removes ovis aries because it is so big we can't see anything else
 tree2 <- drop.tip(tree2, tip = 1)
-tree2$tip.label
+#tree2$tip.label
 
-ape::write.tree(tree2, file='tree2.txt')
+ape::write.tree(tree2, file='tree/tree2.txt')
 
-p <- ggtree(tree2) + 
-  geom_tiplab(size=2)
+tree2 <- read.tree("tree/tree2.txt") # load the tree file in
+
+p <- ggtree(tree2)
 
 # add in the data you want
 # currently this plot shows 22 of the 25 observations in a neighbor based phylogeny 
@@ -63,7 +58,7 @@ p3 <- facet_plot(p2, panel="Difference in Genome Size",
 
 p3 + theme_tree2() + geom_vline(xintercept = 0, alpha=0.5)
 
-ggsave("facet_tree.png")
+ggsave("tree/facet_tree.png") # make sure thr photo it saves is nicely formatted 
 
 # this plot makes it more obvious that Ovis aries is a big outlier that makes the other
 # data hard to see
