@@ -105,12 +105,25 @@ names <- as.data.frame(names)
 
 write.csv(names,"lifespan_species.csv", row.names = FALSE) # export limited species for use in phylogeny
 
+
+# Create a scatter plot with a linear regression line
 dg %>% 
   ggplot(aes(x=ln_r_rlifespan, y=gs_diff_mb, color=sex_determination)) +
   geom_smooth(method="lm",se=FALSE, color='gray', linetype=2, size=0.5) +
   geom_point() +
-  labs(x="Difference in Lifespan", y="Difference in Genome Size") +
   theme_minimal()
+
+dg %>% 
+  ggplot(aes(x=gs_diff_mb, y=ln_r_rlifespan, color=sex_determination)) +
+  geom_smooth(method="lm",se=FALSE, color='gray', linetype=2, size=0.5) +
+  geom_point() +
+  theme_minimal()
+
+# explain the line seen above
+lm_mod <- lm(ln_r_rlifespan ~ gs_diff_mb, dg)
+sum_lm_mod <- summary(lm_mod)
+sum_lm_mod$r.squared # 0.04240
+# equation: y = 1.1276 + 0.0002x
 
 # ignoring the points that reside outside of 100Mb difference on each side.
 dg[dg$gs_diff_mb < 100 & dg$gs_diff_mb > -100,] %>% 
@@ -128,29 +141,19 @@ dg[dg$gs_diff_mb < 100 & dg$gs_diff_mb > -100,] %>%
   labs(x="Difference in Genome Size", y="Difference in Lifespan") +
   theme_minimal()
 
-# I want to investigate the linear line being shown on this plot
-cor(dg$gs_diff_mb,dg$ln_r_rlifespan) # get correlation value 
-# try this again with the subset data because I think the correlation will change
-sub <- dg[dg$gs_diff_mb < 100 & dg$gs_diff_mb > -100,]
-my_cor <- cor(sub$gs_diff_mb,sub$ln_r_rlifespan) # yup we get a negative close to zero
-# we have a very weak correlation that changes as outliers are removed
-cor_t <- my_cor*sqrt(length(sub$species)-2) / sqrt(1-my_cor^2)
-pt(cor_t, df=(length(sub$species)-2), lower.tail = TRUE)*2
-# fail to reject the null hypothesis that there is no linear association. We can
-# not conclude that there is a linear association between gs_diff_mb and lifespan
-cor.test(sub$gs_diff_mb,sub$ln_r_rlifespan)
-# this sums up the above work for the smaller subset way better
-cor.test(sub$gs_diff_mb,sub$ln_r_rlifespan, alternative = "greater")
-# r^2 = -0.07775808^2
-(-0.07775808)^2 # percentage of the variability in lifespan explained by genome_diff
-# 0.06% of the variability in lifespan is explained by difference in genome size
+dg1 <- dg[dg$gs_diff_mb < 250 & dg$gs_diff_mb > -250,]
+lm_mod2 <- lm(ln_r_rlifespan ~ gs_diff_mb, dg1)
+sum_lm_mod2 <- summary(lm_mod2)
+sum_lm_mod2$r.squared # 0.005538
+# equation: y = 1.1276 + 0.0004x
 
-lm(gs_diff_mb ~ ln_r_rlifespan, data = dg) %>% summary
-lm(ln_r_rlifespan ~ gs_diff_mb, data = dg) %>% summary # what is it like with predictor and response in the right places?
-# note, these are showing the full data set with the outliers
+dg2 <- dg[dg$gs_diff_mb < 100 & dg$gs_diff_mb > -100,]
+lm_mod3 <- lm(ln_r_rlifespan ~ gs_diff_mb, dg2)
+sum_lm_mod3 <- summary(lm_mod3)
+sum_lm_mod3$r.squared # 0.006046
+# equation: y = 0.1468 - 0.0009x
 
-# here are the regressions for the plot with the data subset to -100:100
-# 
+
 
 #### old stuff idk what is here ####
 # basic plots of differences

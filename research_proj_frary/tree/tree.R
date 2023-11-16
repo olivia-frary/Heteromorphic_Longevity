@@ -27,11 +27,10 @@ ggtree(tree, layout = "rectangular") +
 tree2 <- drop.tip(tree, tip = 12) # removes pan troglodytes because we know that one is weird and wrong
 tree2 <- drop.tip(tree2, tip = 11) # removes ovis aries because it is so big we can't see anything else
 tree2 <- drop.tip(tree2, tip = 1)
-#tree2$tip.label
-
 ape::write.tree(tree2, file='tree/tree2.txt')
 
 tree2 <- read.tree("tree/tree2.txt") # load the tree file in
+tree2$edge.length <- rep(1, Nedge(tree2))
 
 p <- ggtree(tree2)
 
@@ -56,7 +55,7 @@ p3 <- facet_plot(p2, panel="Difference in Genome Size",
                  geom=geom_segment, 
                  aes(x=0, xend=gs_diff, y=y, yend=y, color=sex), size=10)
 
-p3 + theme_tree2() + geom_vline(xintercept = 0, alpha=0.5)
+p3 + theme_tree2() + geom_vline(xintercept = 0, alpha=0.5, linetype = "dashed")
 
 ggsave("tree/facet_tree.png") # make sure thr photo it saves is nicely formatted 
 
@@ -76,4 +75,5 @@ p1 <- ggtree(tree2, aes(color=as.numeric(d1$ln_r_rlifespan)), layout = 'circular
              geom_tiplab(hjust = -.1) + 
              xlim(0, 1.2) + 
              theme(legend.position = c(.05, .85))
+
 
