@@ -120,10 +120,12 @@ dg %>%
   theme_minimal()
 
 # explain the line seen above
-lm_mod <- lm(ln_r_rlifespan ~ gs_diff_mb, dg)
+lm_mod <- lm(gs_diff_mb ~ ln_r_rlifespan, dg)
+lm_mod1 <- lm(ln_r_rlifespan ~ gs_diff_mb, dg)
 sum_lm_mod <- summary(lm_mod)
 sum_lm_mod$r.squared # 0.04240
 # equation: y = 1.1276 + 0.0002x
+plot(lm_mod1)
 
 # ignoring the points that reside outside of 100Mb difference on each side.
 dg[dg$gs_diff_mb < 100 & dg$gs_diff_mb > -100,] %>% 
