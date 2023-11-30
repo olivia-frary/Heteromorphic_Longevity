@@ -31,7 +31,7 @@ df %>%
 
 # the response variables we are interested in are to do with lifespan
 # the possible predictors are species, sex_determination, population_source, 
-# and lifespan_data_type
+# and er
 # as we move further to the smaller data set we will look at the difference in
 # size between the heteromorphic sex chromosomes
 
@@ -71,20 +71,22 @@ dl %>% names # what we have to work with
 
 m1 <- glm(data=dl, formula = ln_r_rlifespan ~ sex_determination)
 summary(m1) # suggests that the sex_determination predictor is statistically significant
-plot(m1) # most data is normally distributed - though this makes sense due to the log transformation
+# plot(m1) # most data is normally distributed - though this makes sense due to the log transformation
 
 # lets make a horrible overfit model for funsies
-m2 <- glm(data=dl, ln_r_rlifespan ~ sex_determination*population_source*lifespan_data_type)
-compare_performance(m1,m2, rank = TRUE) %>% plot
-# we get a warning messages for these that we need to look into
+m2 <- glm(data=dl, formula = ln_r_rlifespan ~ sex_determination*population_source*lifespan_data_type)
+compare_performance(m1,m2, rank = TRUE)
+# we get a warning messages that has to do with varying rows of NAs, ignoring for now
 step <- stepAIC(m2)
 # AIC will find the simplelist best model
 step$formula # this spits out the best simplified model
 mod_best <- glm(data=dl, formula = step$formula)
-compare_performance(m1,m2,mod_best, rank = TRUE) %>% plot
+compare_performance(m1,m2,mod_best, rank = TRUE)
 summary(mod_best) # sex determination seems to have the best affect
 
 # add predictions to dl
+
+
 
 # species, sex_determination, population_source, 
 # and lifespan_data_type
@@ -109,7 +111,7 @@ write.csv(names,"lifespan_species.csv", row.names = FALSE) # export limited spec
 # Create a scatter plot with a linear regression line
 dg %>% 
   ggplot(aes(x=ln_r_rlifespan, y=gs_diff_mb, color=sex_determination)) +
-  geom_smooth(method="lm",se=FALSE, color='gray', linetype=2, size=0.5) +
+  geom_smooth(method="lm",se=FALSE, color='gray', linetype=2, linewidth=0.5) +
   geom_point() +
   theme_minimal()
 

@@ -71,7 +71,6 @@ head(df) %>%
   kable() %>% 
   kable_classic(lightable_options="hover") %>% 
   scroll_box(width = "850px")
-glimpse(df)
 ```
 
 Here, we are seeing a lot of NA's. We will sift through this data, first focusing on lifespan differences. Then we will do a tighter filter, including genome size differences
@@ -176,7 +175,7 @@ dg$gs_diff_mb <- ifelse(dg$sex_determination == "female heterogametic", -dg$gs_d
 ```{r plot_genome_size}
 dg %>% 
   ggplot(aes(x=ln_r_rlifespan, y=gs_diff_mb, color=sex_determination)) +
-  geom_smooth(method="lm",se=FALSE, color='gray', linetype=2, size=0.5) +
+  geom_smooth(method="lm",se=FALSE, color='gray', linetype=2, linewidth=0.5) +
   geom_point() +
   labs(x="Difference in Lifespan", y="Difference in Genome Size") +
   theme_minimal()
@@ -184,13 +183,13 @@ dg %>%
 
 This plot reveals that most of the data we have is male heterogametic. There is only one female heterogametic data point. Also, the outliers make it appear as though there is a trend, but really it is hard to believe that there is actually a positive trend worth noting. From this plot, we can not conclude a correlation between the difference in size of the heterogametic sex chromosomes and the difference in lifespan between the sexes. 
 
-Lets quickly restrict the data to a subset of -100:100 Mb to see how the trendline behaves. 
+Lets quickly restrict the data to a subset of -250:250 Mb to see how the trendline behaves. 
 
 ```{r plot_subset_genome_size}
 # ignoring the points that reside outside of 100Mb difference on each side.
 dg[dg$gs_diff_mb < 250 & dg$gs_diff_mb > -250,] %>% 
   ggplot(aes(x=ln_r_rlifespan, y=gs_diff_mb, color=sex_determination)) +
-  geom_smooth(method="lm", se=FALSE , color='gray', linetype=2, size=0.5) +
+  geom_smooth(method="lm", se=FALSE , color='gray', linetype=2, linewidth=0.5) +
   geom_point() +
   labs(x="Difference in Lifespan", y="Difference in Genome Size") +
   theme_minimal()
@@ -201,7 +200,43 @@ I want to collect more data on the longevity and differences in genome size of s
 
 ### Step 4: Attempt some models 
 
+##### Models with larger subset of lifespan data
+
+```{r models_dl, message=FALSE, warning=FALSE, include=FALSE}
+m1 <- glm(data=dl, formula = ln_r_rlifespan ~ sex_determination)
+m2 <- glm(data=dl, formula = ln_r_rlifespan ~ sex_determination*population_source*lifespan_data_type)
+step <- stepAIC(m2)
+step$formula
+mod_best <- glm(data=dl, formula = step$formula)
+compare_performance(m1,m2,mod_best, rank = TRUE)
+```
+
+Model 1 formula to investigate sex determination as a predictor
+
+```{r}
+m1$formula
+```
+
+Model 2 formula to make a complicated model of three predictors
+
+```{r}
+m2$formula
+```
+
+Model 3 formula, used stepAIC method to find "best" model
+
+```{r}
+step$formula
+compare_performance(m1,m2,mod_best, rank = TRUE) %>% plot
+```
+
+Possibly add in commentary on the mod_best summary and how it shows sex_determination with the lowest p-value.
+
+
 ### Step 5: Look at model predictions
+
+##### Model predictions with larger subset of lifespan data
+
 
 ### Step 6: Build pipeline for a phylogeny
 
@@ -351,7 +386,7 @@ tree2 <- drop.tip(tree2, tip = 1)
 ape::write.tree(tree2, file='tree/tree2.txt')
 ```
 
-```{r horter_easy_tree, fig.width=8}
+```{r shorter_easy_tree_fig, fig.width=8}
 tree2 <- read.tree("tree/tree2.txt") # load the tree file in
 tree2$edge.length <- rep(1, Nedge(tree2))
 
@@ -381,3 +416,10 @@ p3 <- facet_plot(p2, panel="Difference in Genome Size",
 p3 + theme_tree2() + geom_vline(xintercept = 0, alpha=0.5, linetype = "dashed")
 ```
 
+![BEAST tree faceted with larger differences removed to take a look at the smaller data](tree/facet_tree1.png)
+
+While using MAFFT online, I saw that some of my sequences could have been reversed which could explain some of the weird relationships seen with the neighbor joined tree. Here is a quick tree made with bayesian methodology going through 1,000,000 and burnout at 250. The program used was beast.
+
+![BEAST tree](tree/beast_tree.png)
+
+![BEAST tree with natural log lifespan data plotted in gradient](tree/gradient_tree.png)

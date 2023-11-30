@@ -23,7 +23,7 @@ write.nex(output, file = "mafft_output.nex", taxblock = TRUE)
 
 #### faster code ####
 # Try the above code but faster - took about 5 minutes
-input <- read.fas("mitochondrion_seq_format.fasta")
+input <- read.fas("accession/mitochondrion_seq_format.fasta")
 # still need to do the exec file pathway differently :)
 output2 <- mafft(input, exec="C:/Users/olivi/mafft-7.520-win64-signed/mafft-win/mafft.bat",
                       quiet = TRUE)
