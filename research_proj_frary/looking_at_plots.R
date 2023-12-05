@@ -7,6 +7,7 @@ library(shiny)
 library(modelr)
 library(MASS)
 library(easystats)
+library(plotly)
 
 #### load in and check out the data ####
 # read in the data
@@ -81,11 +82,23 @@ step <- stepAIC(m2)
 # AIC will find the simplelist best model
 step$formula # this spits out the best simplified model
 mod_best <- glm(data=dl, formula = step$formula)
-compare_performance(m1,m2,mod_best, rank = TRUE)
+s <- compare_performance(m1,m2,mod_best, rank = TRUE)
 summary(mod_best) # sex determination seems to have the best affect
+s %>% 
+  select(c('Model','R2','RMSE','AIC_wt','Performance_Score'))
 
 # add predictions to dl
+dl %>% 
+  gather_predictions(mod_best) %>% 
+  ggplot(aes(x=pred,y=species, color=sex_determination)) +
+  geom_point() +
+  geom_vline(xintercept = 0) +
+  theme(axis.text.y = element_text(size=7))
+  
+dl %>% 
+  gather_predictions(mod_best) %>% view
 
+# this is really weird let's try the smaller subset cuz what
 
 
 # species, sex_determination, population_source, 
@@ -109,17 +122,19 @@ write.csv(names,"lifespan_species.csv", row.names = FALSE) # export limited spec
 
 
 # Create a scatter plot with a linear regression line
-dg %>% 
+p <- dg %>% 
   ggplot(aes(x=ln_r_rlifespan, y=gs_diff_mb, color=sex_determination)) +
   geom_smooth(method="lm",se=FALSE, color='gray', linetype=2, linewidth=0.5) +
   geom_point() +
   theme_minimal()
+ggplotly(p)
 
-dg %>% 
+p <- dg %>% 
   ggplot(aes(x=gs_diff_mb, y=ln_r_rlifespan, color=sex_determination)) +
   geom_smooth(method="lm",se=FALSE, color='gray', linetype=2, size=0.5) +
   geom_point() +
   theme_minimal()
+ggplotly(p)
 
 # explain the line seen above
 lm_mod <- lm(gs_diff_mb ~ ln_r_rlifespan, dg)
@@ -138,18 +153,20 @@ dg[dg$gs_diff_mb < 100 & dg$gs_diff_mb > -100,] %>%
   theme_minimal()
 
 # this plot is set so that the predictor is on the x-axis, and response is on y-axis
-dg[dg$gs_diff_mb < 100 & dg$gs_diff_mb > -100,] %>% 
+p <- dg[dg$gs_diff_mb < 250 & dg$gs_diff_mb > -250,] %>% 
   ggplot(aes(x=gs_diff_mb, y=ln_r_rlifespan, color=sex_determination)) +
   geom_smooth(method="lm", se=FALSE , color='gray', linetype=2, size=0.5) +
   geom_point() +
   labs(x="Difference in Genome Size", y="Difference in Lifespan") +
   theme_minimal()
+ggplotly(p)
 
 dg1 <- dg[dg$gs_diff_mb < 250 & dg$gs_diff_mb > -250,]
 lm_mod2 <- lm(ln_r_rlifespan ~ gs_diff_mb, dg1)
 sum_lm_mod2 <- summary(lm_mod2)
 sum_lm_mod2$r.squared # 0.005538
-# equation: y = 1.1276 + 0.0004x
+# equation: y = 0.1276 + 0.0004x
+plot(lm_mod2)
 
 dg2 <- dg[dg$gs_diff_mb < 100 & dg$gs_diff_mb > -100,]
 lm_mod3 <- lm(ln_r_rlifespan ~ gs_diff_mb, dg2)
@@ -157,7 +174,23 @@ sum_lm_mod3 <- summary(lm_mod3)
 sum_lm_mod3$r.squared # 0.006046
 # equation: y = 0.1468 - 0.0009x
 
+m <- glm(data=dg1, formula= ln_r_rlifespan ~ gs_diff_mb)
+summary(m)
 
+#complicated model
+mess <- glm(data = dg1,
+            formula = ln_r_rlifespan ~ gs_diff_mb*sex_determination)
+step <- stepAIC(mess)
+# AIC will find the simplelist best model
+step$formula # this spits out the best simplified model
+mod_best <- glm(data=dl, formula = step$formula)
+compare_performance(m,mess,mod_best, rank = TRUE)
+
+dg1 %>%
+  gather_predictions(m) %>% 
+  ggplot(aes(x=gs_diff_mb, y=pred, color=sex_determination)) +
+  geom_point() +
+  theme_minimal()
 
 #### old stuff idk what is here ####
 # basic plots of differences

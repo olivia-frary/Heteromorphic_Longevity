@@ -1,5 +1,5 @@
 ---
-title: "Final Project"
+title: "Relationship Between Heteromorphic Sex Chromosomes and Organism Longevity"
 author: "Olivia Frary"
 output:
   html_document:
@@ -14,11 +14,11 @@ knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 
 ## Project Aim
 
-The purpose of this project was to consider the predictors of longevity in organisms across the tree of life. I was particularly interested in whether there is a correlation between the degree of difference in size of heterogametic sex chromosomes and lifespan. 
+The purpose of this project is to consider the predictors of longevity in organisms across the tree of life. I was particularly interested in whether there is a correlation between the degree of difference in size of heterogametic sex chromosomes and organism lifespan. 
 
 ---
 
-## Background information
+## Background Information
 
 ##### Heteromorphic Sex Chromosomes
 
@@ -28,7 +28,7 @@ The purpose of this project was to consider the predictors of longevity in organ
 
 ## Project Methods
 
-### Step 1: Find and load R packages relevant to dealing with genomic data
+Expanding the code below will show you the packages used in this project. 
 
 ```{r packages, echo=TRUE}
 # CRAN Packages
@@ -44,6 +44,7 @@ library(shiny)
 library(modelr)
 library(MASS)
 library(easystats)
+library(plotly)
 
 # Bioconductor Packages
 library(Biostrings)
@@ -53,12 +54,14 @@ library(msa)
 
 # Github Packages
 library(ggmsa)
-
-#### CONFIRM THE PACKAGES YOU ACTUALLY USED GIRL ####
-
 ```
 
-### Step 2: Take a look at the data we have
+### Take a look at the data we have
+
+The table below gives a glimpse into the data that was gathered. The majority of
+the data available was longevity data. Where we are constrained in this study is 
+in the availability of sex specific genome size data. In my digging through literature, I only found about 25 species that have
+sex specific genome size *and* lifespan data.
 
 ```{r load_data}
 df <- read_csv("analysis_data.csv") %>% 
@@ -73,10 +76,9 @@ head(df) %>%
   scroll_box(width = "850px")
 ```
 
-Here, we are seeing a lot of NA's. We will sift through this data, first focusing on lifespan differences. Then we will do a tighter filter, including genome size differences
-which will leave us with 25 observations of the 13 variables. 
+Here, we see a lot of NA's. These are due to the lack of data found for genome sizes. We will sift through this data, first focusing on lifespan differences which we have more information for. Then we will do a tighter filter, exploring the genome size differences.
 
-### Step 3: Make some initial plots of the data we have
+### Make some initial plots of the data we have
 
 #### <i>Initial Plots: Lifespan</i>
 
@@ -98,7 +100,7 @@ dl %>%
   theme(axis.text.y = element_text(size=7))
 ```
 
-The figure above shows the difference between the lifespan of homogametic and heterogametic sexes of certain species. The x-axis plots ln(homogametic lifespan/heterogametic lifespan) to normalize the results. If the point is above zero, the homogametic sex lives longer. If it is below zero, the heterogametic sex lives longer. The colors are based on whether the species' sex determination system is female or male heterogametic
+The figure above shows the difference between the lifespan of homogametic and heterogametic sexes of certain species. The x-axis plots ln(homogametic lifespan/heterogametic lifespan) to normalize the results. If the point is greater than zero, the homogametic sex lives longer. If it is less than zero, the heterogametic sex lives longer. The colors are based on whether the species' sex determination system is female or male heterogametic.
 
 The following interactive version of this plot allows you to look at the data
 based on class, order, and family by changing the colors of the points. 
@@ -163,7 +165,7 @@ From our lifespan plots, we can see that the homogametic sex lives longer. Howev
 
 #### <i>Initial Plots: Genome Size</i>
 
-Let's now look at all the species who have both lifespan and genome size data.
+Let's now look at all the species who have both lifespan and genome size data. This is the smaller dataset of 25 species. 
 
 ```{r filter_genome_size}
 dg <- 
@@ -173,12 +175,13 @@ dg$gs_diff_mb <- ifelse(dg$sex_determination == "female heterogametic", -dg$gs_d
 ```
 
 ```{r plot_genome_size}
-dg %>% 
-  ggplot(aes(x=ln_r_rlifespan, y=gs_diff_mb, color=sex_determination)) +
-  geom_smooth(method="lm",se=FALSE, color='gray', linetype=2, linewidth=0.5) +
+p <- dg %>% 
+  ggplot(aes(x=gs_diff_mb, y=ln_r_rlifespan, color=sex_determination)) +
+  geom_smooth(method="lm",se=FALSE, color='gray', linetype=2, size=0.5) +
   geom_point() +
-  labs(x="Difference in Lifespan", y="Difference in Genome Size") +
+  labs(x="Difference in Genome Size", y="Difference in Lifespan") +
   theme_minimal()
+ggplotly(p)
 ```
 
 This plot reveals that most of the data we have is male heterogametic. There is only one female heterogametic data point. Also, the outliers make it appear as though there is a trend, but really it is hard to believe that there is actually a positive trend worth noting. From this plot, we can not conclude a correlation between the difference in size of the heterogametic sex chromosomes and the difference in lifespan between the sexes. 
@@ -187,61 +190,42 @@ Lets quickly restrict the data to a subset of -250:250 Mb to see how the trendli
 
 ```{r plot_subset_genome_size}
 # ignoring the points that reside outside of 100Mb difference on each side.
-dg[dg$gs_diff_mb < 250 & dg$gs_diff_mb > -250,] %>% 
-  ggplot(aes(x=ln_r_rlifespan, y=gs_diff_mb, color=sex_determination)) +
-  geom_smooth(method="lm", se=FALSE , color='gray', linetype=2, linewidth=0.5) +
+p <- dg[dg$gs_diff_mb < 250 & dg$gs_diff_mb > -250,] %>% 
+  ggplot(aes(x=gs_diff_mb, y=ln_r_rlifespan, color=sex_determination)) +
+  geom_smooth(method="lm", se=FALSE , color='gray', linetype=2, size=0.5) +
   geom_point() +
-  labs(x="Difference in Lifespan", y="Difference in Genome Size") +
+  labs(x="Difference in Genome Size", y="Difference in Lifespan") +
+  theme_minimal()
+ggplotly(p)
+```
+
+As expected, when the more extreme values are removed. the trendline starts to flatten out. There does not seem to be a significant relationship between difference in size of the sex chromosomes and longevity.
+
+I want to collect more data on the longevity and differences in genome size of species so that I can further investigate a pattern. Until then, let's look at the linear model of the data and see what predictions would be made if the data followed the model.
+
+### View predictions
+
+##### Model for the smaller subset of Genome Size data
+
+The only predictor being explored for this data set is the difference in genome size data. This makes a simple linear model that predicts along the equation y = 0.1276 + 0.0004x.  Only 0.55% of the variance is explained by the predictor. Here are the predictions of difference in lifespan data based off the real data.
+
+```{r}
+dg1 <- dg[dg$gs_diff_mb < 250 & dg$gs_diff_mb > -250,]
+lm_mod2 <- lm(ln_r_rlifespan ~ gs_diff_mb, dg1)
+dg1 %>%
+  gather_predictions(lm_mod2) %>% 
+  ggplot(aes(x=gs_diff_mb, y=pred, color=sex_determination)) +
+  geom_point() +
+  labs(x="Difference in Genome Size", y="Difference in Lifespan Prediction") +
   theme_minimal()
 ```
 
+This model informs us that the p-value is 0.742. There is no significant relationship between the difference in lifespan and the difference in genome size shown by our sample.
 
-I want to collect more data on the longevity and differences in genome size of species so that I can further investigate a pattern. Until then, let's make some models based off the data we have and see if the predictions they make will give us a clue into a possible pattern.
+### Build a phylogeny
 
-### Step 4: Attempt some models 
-
-##### Models with larger subset of lifespan data
-
-```{r models_dl, message=FALSE, warning=FALSE, include=FALSE}
-m1 <- glm(data=dl, formula = ln_r_rlifespan ~ sex_determination)
-m2 <- glm(data=dl, formula = ln_r_rlifespan ~ sex_determination*population_source*lifespan_data_type)
-step <- stepAIC(m2)
-step$formula
-mod_best <- glm(data=dl, formula = step$formula)
-compare_performance(m1,m2,mod_best, rank = TRUE)
-```
-
-Model 1 formula to investigate sex determination as a predictor
-
-```{r}
-m1$formula
-```
-
-Model 2 formula to make a complicated model of three predictors
-
-```{r}
-m2$formula
-```
-
-Model 3 formula, used stepAIC method to find "best" model
-
-```{r}
-step$formula
-compare_performance(m1,m2,mod_best, rank = TRUE) %>% plot
-```
-
-Possibly add in commentary on the mod_best summary and how it shows sex_determination with the lowest p-value.
-
-
-### Step 5: Look at model predictions
-
-##### Model predictions with larger subset of lifespan data
-
-
-### Step 6: Build pipeline for a phylogeny
-
-Though I still have the goal of collecting more data, I wanted to build a method
-for creating a phylogenetic tree so that I could implement it in further analyes.
+Though I still have the goal of collecting more data, I wanted to learn a method
+for creating a phylogenetic tree so that I could implement it in further analyses.
 
 #### <i> Get accession numbers </i>
 
@@ -313,13 +297,13 @@ df[,1:8] %>%
   kable_classic(lightable_options="hover")
 ```
 
-We suprisingly got pretty complete coi data! The lengths reveal some issues where 
-the option pulled from GenBank probably wasn't the best option. I manually checked
-on those that were further away from 600 bp to see if they have more comparable options on GenBank.
+We surprisingly got pretty complete coi data! The lengths reveal some issues where 
+the sequence pulled from GenBank probably wasn't the best option. I manually checked
+on those that were further away from 600 bp to see if they have more comparable options on GenBank. The coi gene will be what I construct the tree off of.
 
 #### <i> Make multi fasta </i>
 
-My colleague Barbara Jetton and I worked on the next code chunk for converting the accession data
+The next code chunk converts the accession data
 into a multi fasta with simple descriptor lines. 
 
 ```{r multi_fasta, eval=FALSE, echo=TRUE}
@@ -352,13 +336,18 @@ write.FASTA(gene_seq_format, file = "accession/coi_seq_format.fasta")
 # this output a nice multi fasta, I just don't know for sure if I have all the species I'm aiming for
 ```
 
-My goal for this script is to allow for species with unknown sequences for later comparisons that
-may be larger than the one I'm doing now. 
+My future goals for making multi fastas is to create a super matrix that consists of multiple genes for all the species so that I can build larger trees. 
 
-Next I wanted to learn how to do an alignment and a simple tree.
-With DECIPHER and Phangorn I was able to make a tree with neighbor joining.
-I do not believe this tree is very accurate. It is unrooted and I'm comparing
-species that I couldn't think of an easy outgroup for. 
+#### <i> Conduct an alignment </i>
+
+Next, I wanted to learn how to do an alignment and a simple tree. Here is a section of the alignment I performed in R. The is lots of variation since I am using species that are not closely related.
+
+![](tree/mult_alignment.png)
+
+#### <i> Build Trees </i>
+
+With DECIPHER and Phangorn, I was able to make a tree with neighbor joining.
+I do not believe this tree is very accurate.
 
 ```{r easy_alignment, eval=FALSE, echo=TRUE}
 gimme_fast <- readDNAStringSet("accession/coi_seq_format.fasta") # read in multi fasta as a string set
@@ -375,18 +364,29 @@ ggtree(tree, layout = "rectangular") +
   geom_tiplab(align=TRUE, linesize=.5) + ggplot2::xlim(0, 2)
 ```
 
-This tree shows weird groupings that I do not trust. I have a lot of drosophila data, but it is weird that it is popping up in random groups. 
+This tree shows weird groupings that I do not trust. I have a lot of drosophila data, but it is weird that it is popping up in random areas. 
 
-I still wanted to look at some data along side this tree for funsies. There were some outliers that made it very hard to see the details so I removed them in a second tree in order to plot data side by side.
+Using software outside of R (MAFFT & BEAST), I performed an alignment and made a tree with the sequences. While using MAFFT online, I saw that some of my sequences could have been reversed which could explain some of the weird relationships seen with the neighbor joined tree. The relationships shown in the BEAST tree follow expectations more closely.
 
-```{r shorter_easy_tree, eval=FALSE, echo=TRUE}
+![](tree/beast_tree.png)
+
+Let's look at the phylogeny along side the data.
+Here are visualizations of the BEAST tree that show the data in continuous scale gradient.
+
+![](tree/gradient_tree.png)
+
+![](tree/gradient_tree2.png)
+
+This final plot shows all the data that I was focusing on side by side. While there still doesn't seem to be a correlation between the data, this visualization helps us to ask more questions. Do organisms with smaller genomes tend to have smaller differences in sex chromosome size? Is this affecting the trends that we are seeing?
+
+```{r shorter_easy_tree, eval=FALSE, include=FALSE}
 tree2 <- drop.tip(tree, tip = 12) # removes pan troglodytes because we know that one is weird and wrong
 tree2 <- drop.tip(tree2, tip = 11) # removes ovis aries because it is so big we can't see anything else
 tree2 <- drop.tip(tree2, tip = 1)
 ape::write.tree(tree2, file='tree/tree2.txt')
 ```
 
-```{r shorter_easy_tree_fig, fig.width=8}
+```{r shorter_easy_tree_fig, eval=FALSE, fig.width=8, include=FALSE}
 tree2 <- read.tree("tree/tree2.txt") # load the tree file in
 tree2$edge.length <- rep(1, Nedge(tree2))
 
@@ -416,10 +416,9 @@ p3 <- facet_plot(p2, panel="Difference in Genome Size",
 p3 + theme_tree2() + geom_vline(xintercept = 0, alpha=0.5, linetype = "dashed")
 ```
 
-![BEAST tree faceted with larger differences removed to take a look at the smaller data](tree/facet_tree1.png)
+![](tree/facet_tree1.png)
 
-While using MAFFT online, I saw that some of my sequences could have been reversed which could explain some of the weird relationships seen with the neighbor joined tree. Here is a quick tree made with bayesian methodology going through 1,000,000 and burnout at 250. The program used was beast.
+### Future Steps
 
-![BEAST tree](tree/beast_tree.png)
+I want to collect more data to see if the lack of correlation is due to a small sample size. I also want to create more robust and accurate trees to perform phylogenetically independent contrasts that will help me to see if phylogentic relationships affect the data. 
 
-![BEAST tree with natural log lifespan data plotted in gradient](tree/gradient_tree.png)

@@ -32,7 +32,7 @@ write.fas(output2, file = "mafft2_output.fasta") # fasta better resembles web ve
 write.nex(output2, file = "mafft2_output.nex", taxblock = TRUE)
 
 
-# trying to visualize the data
+#### trying to visualize the data ####
 
 # if (!requireNamespace("devtools", quietly=TRUE))
 #   install.packages("devtools")

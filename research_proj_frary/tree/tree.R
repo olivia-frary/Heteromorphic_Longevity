@@ -14,7 +14,9 @@ alignment <- AlignSeqs(gimme_fast) # perform profile-to-profile alignment DECIPH
 
 # get a multiple alignment 
 mult_alignment <- DNAMultipleAlignment(alignment)
-ggmsa(mult_alignment, start = 221, end = 280, color = "Shapely_NT", char_width = 0.5, seq_name = T) + geom_seqlogo() + geom_msaBar()
+ggmsa(mult_alignment, start = 350, end = 400, color = "Shapely_NT", char_width = 0.5, seq_name = T) + geom_msaBar()
+ggsave("tree/mult_alignment.png")
+
 # picking the color did not work here, see why this is happening
 
 distance <- dist.dna(as.DNAbin(alignment)) # find pairwise distances
@@ -108,10 +110,19 @@ p <- ggtree(treemafft)
 p2 <- p+geom_tippoint(aes(colour=as.numeric(td$dat$life)),
                       data=p$data %>% dplyr::filter(isTip==TRUE),
                       size=3) +
-  scale_colour_gradient(low='blue', high='Orange', name = "Difference in Lifespan")
+  scale_colour_gradient(low='blue', high='orange', name = "Difference in Lifespan")
 p2 + geom_tiplab(linesize=.5,offset = 0.02) + ggplot2::xlim(0, 1)
 
 ggsave("tree/gradient_tree.png")
+
+p <- ggtree(sub_treemafft) 
+p2 <- p+geom_tippoint(aes(colour=as.numeric(wut$gs_diff)),
+                      data=p$data %>% dplyr::filter(isTip==TRUE),
+                      size=3) +
+  scale_colour_viridis_c(name = "Difference in Genome Size")
+p2 + geom_tiplab(linesize=.5,offset = 0.02) + ggplot2::xlim(0, 1)
+
+ggsave("tree/gradient_tree2.png")
 
 # HAS ACCURATE DATA NOW
 ggtree(treemafft) +
@@ -139,7 +150,13 @@ new_tiplabels <- c("Amblyomma cajennense","Aphelocoma coerulescens","Callosobruc
 treemafft$tip.label <- new_tiplabels
 
 td <- as.treedata.table(tree = treemafft, data=d1)
-td$dat$life
+td$dat$tip.label
+wut <- td$dat %>% 
+  filter(tip.label != c("Ovis aries", "Pan troglodytes")) %>% 
+  filter(tip.label != c("Amblyomma cajennense"))
+
+
+  filter(-c("Ovis aries", "Pan troglodytes", "Amblyomma cajennense"))
 
 # try faceted plot again but with the BEAST tree
 p <- ggtree(treemafft)
