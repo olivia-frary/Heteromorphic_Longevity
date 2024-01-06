@@ -1,0 +1,281 @@
+#NEXUS
+
+
+BEGIN DATA;
+ DIMENSIONS NTAX=25 NCHAR=765;
+ FORMAT DATATYPE=DNA INTERLEAVE MISSING=-;
+[Name: Amblyomma_cajennense Len:   765  Check:    0]
+[Name: Nauphoeta_cinerea Len:   765  Check:    0]
+[Name: _R_Periplaneta_americana Len:   765  Check:    0]
+[Name: _R_Chrysomya_megacephala Len:   765  Check:    0]
+[Name: Cochliomyia_hominivorax Len:   765  Check:    0]
+[Name: Lucilia_cuprina  Len:   765  Check:    0]
+[Name: _R_Musca_domestica Len:   765  Check:    0]
+[Name: Drosophila_kikkawai Len:   765  Check:    0]
+[Name: Drosophila_ananassae Len:   765  Check:    0]
+[Name: Drosophila_erecta Len:   765  Check:    0]
+[Name: Drosophila_yakuba Len:   765  Check:    0]
+[Name: Drosophila_simulans Len:   765  Check:    0]
+[Name: Drosophila_melanogaster Len:   765  Check:    0]
+[Name: Drosophila_montana Len:   765  Check:    0]
+[Name: Drosophila_virilis Len:   765  Check:    0]
+[Name: Drosophila_mojavensis Len:   765  Check:    0]
+[Name: Episyrphus_balteatus Len:   765  Check:    0]
+[Name: Drosophila_mulleri Len:   765  Check:    0]
+[Name: Drosophila_sechellia Len:   765  Check:    0]
+[Name: _R_Drosophila_bipectinata Len:   765  Check:    0]
+[Name: Callosobruchus_maculatus Len:   765  Check:    0]
+[Name: Aphelocoma_coerulescens Len:   765  Check:    0]
+[Name: Pan_troglodytes  Len:   765  Check:    0]
+[Name: Symphalangus_syndactylus Len:   765  Check:    0]
+[Name: Ovis_aries       Len:   765  Check:    0]
+
+MATRIX
+Amblyomma_cajennense -------------------- -------------------- -tacaatatatttaattttt ggaagatgagcaggaataat aggacttagaataagaattt
+Nauphoeta_cinerea    -------------------- -------------------- --acactatacttcattttc ggggcatgggccgggatagt aggtacctccttaagaatat
+_R_Periplaneta_americana -------------------- -------------------- ----------ttttattttc ggtgcctgatcaggtatggt aggaacatccctaagtatat
+_R_Chrysomya_megacephala -------------------- -------------------- -------------------- --------------gatagt aggaacttcattaagtattt
+Cochliomyia_hominivorax tcgcgacagtggttattttc tactaatcataaagatattg gtactctatatttcattttt ggagcttgatcaggaataat tggtacttctttaagaatct
+Lucilia_cuprina      -------------------- -------------------- -----------------ttt ggagcttgatccggaataat tggaacttctttaagaattc
+_R_Musca_domestica   -------------------- ---------------tattg gtactttatattttatcttc ggagcatgatctggtatagt aggaacatcattaagaattt
+Drosophila_kikkawai  -------------------- -------------------- -aactttatattttattttt ggagcttgagcaggaatagt tggaacatctctaagaattt
+Drosophila_ananassae -------------------- -------------------- -aacattatattttattttt ggagcttgagctggaatagt tggaacttcactaagtattt
+Drosophila_erecta    -------------------- -------------------- -aactttatattttattttt ggagcttgagctggaatagc cggaacttctctaagaattt
+Drosophila_yakuba    -------------------- -------------------- -aactttatatttcattttt ggagcttgagccggaatagt aggaacatctttaagaattt
+Drosophila_simulans  -------------------- --------ataaagatattg gaactttatattttatcttt ggagcttgagctgggatagt cggaacatcattaagaattt
+Drosophila_melanogaster -------------------- -------cataaagatattg gaactttatattttattttt ggagcttgagctggaatagt tggaacatctttaagaattt
+Drosophila_montana   -------------------- -------------------- -tacattatattttattttt ggtgcttgagcaggaatagt aggaacatctttaagaattc
+Drosophila_virilis   -------------------- -------------------- -aacattatattttattttc ggtgcttgagcaggaatagt tggaacatctttaagaattt
+Drosophila_mojavensis -------------------- -------------------- -aactttatattttattttc ggagcttgagctggaatagt gggaacttctttaagaattt
+Episyrphus_balteatus -------------------- -------------------- -------------------- ----------------tagt aggtacatcattaagtgtat
+Drosophila_mulleri   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_sechellia -------------------- -------------------- -------------------- -------------------- --------------------
+_R_Drosophila_bipectinata -------------------- -------------------- -------------------- -------------------- --------------------
+Callosobruchus_maculatus -------------------- ----------------attg gtacattatactttattttt ggagcctgagctgggatagc aggtacctcactaagaatat
+Aphelocoma_coerulescens -------------------- -------------------- ----tctgtacttaatcttc ggagcatgagccggaatagt aggtaccgccctaagcctcc
+Pan_troglodytes      -------------------- -------------------- -----------ctactattc ggtgcatgagctggagtcct gggcacagccctaagtctcc
+Symphalangus_syndactylus -------------------- -------------------- -------------------- -------------gagtcct aggcacagccctaagcctcc
+Ovis_aries           -------------------- -------------------- -taccctctacctcctattt ggtgcctgagctggcatagt aggaaccgccttaagcttgc
+
+Amblyomma_cajennense taattcgaatagaattaggt caacctggaacattaattgg aaatgatcaaatttacaatg taattgtaac----agccca tgcttttattataatttttt
+Nauphoeta_cinerea    taatccgagctgaattaaat caaccaggttccttaattgg tgatgatcaaatttataatg tgatcgttac----agccca tgcatttgtaataattttct
+_R_Periplaneta_americana taattcgtgctgaactcggg cagccaggctcactaattgg agatgaccaaattgataatg taattgttac----tgccca tgctttcattataattttct
+_R_Chrysomya_megacephala taattcgagctgaattagga caccctggagcattaattgg agacgaccaaattgataatg taattgtaac----agccca cgcttttattataattttct
+Cochliomyia_hominivorax taattcgagcagaattagga catccaggagcattaattgg agatgatcaaatttataacg taattgttac----agctca tgcttttattataatttttt
+Lucilia_cuprina      taattcgagctgaattagga catcctggagctttaattgg agatgaccaaatttataatg taattgttac----agctca tgcttttattataatttttt
+_R_Musca_domestica   taattcgagctgaattagga caccctggtgctctaattgg agacgaccaaattgataatg ttattgtaac----agccca tgcttttattataattttct
+Drosophila_kikkawai  taattcgagctgaattagga catcccggagctttgattgg agatgatcaaatttataatg ttattgtaac----agccca tgcttttattataatttttt
+Drosophila_ananassae taattcgagctgaattagga caccctggagctttaattgg agatgatcaaatttataacg ttattgtaac----agcaca cgcttttattataatttttt
+Drosophila_erecta    taattcgagcagaattagga cacccaggagcattgatcgg agatgatcaaatttataatg taattgttac----tgcaca tgcttttattataatttttt
+Drosophila_yakuba    taattcgagcagaattaggt catccaggagcattaattgg agatgatcaaatttataatg taattgttac----tgcaca tgcttttattataatttttt
+Drosophila_simulans  taattcgagccgaattagga catcctggagcattaatcgg agatgaccaaatttataatg taattgtaac----tgcaca tgcttttattataatttttt
+Drosophila_melanogaster taattcgagctgaattagga catcctggagcattaattgg agatgatcaaatttataatg taattgtaac----tgcaca tgcttttattataatttttt
+Drosophila_montana   taattcgagctgaattaggt cacccaggagctttaattgg agatgatcaaatttataatg ttattgttac----tgctca tgcttttgttataatttttt
+Drosophila_virilis   taattcgagctgaattagga catccaggagctttaattgg tgatgaccaaatttataatg taattgttac----agctca tgcttttattatgatttttt
+Drosophila_mojavensis taattcgtgctgaattaggt catccaggtgcattaattgg agatgatcaaatttataatg taattgtcac----agcaca cgcttttgtaataatttttt
+Episyrphus_balteatus taattcgtgcagaacttggt catcctggtgctttaattgg agatgatcaaatttataatg taattgttac----agccca tgcttttgtaataatttttt
+Drosophila_mulleri   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_sechellia -------------------- -------------------- -------------------- -------------------- --------------------
+_R_Drosophila_bipectinata -------------------- -------------------- --cttattggaatgacgatt taaatgtcactgtaaagcca tgcttttattataatttttt
+Callosobruchus_maculatus taattcgagccgaattaggt aacccaggatcactaattgg gaatgatcaaatttataacg taatcgttac----tgcaca tgctttcattataatttttt
+Aphelocoma_coerulescens tcatccgagcagaactaggc caaccaggctccctactagg agatgaccaaatctacaacg taatcgttac----agctca tgctttcgtcataatcttct
+Pan_troglodytes      ttattcgggctgaactaggc caaccaggcaacctcctagg taatgaccacatctacaatg tcatcgtcac----agccca tgcattcgtaataatcttct
+Symphalangus_syndactylus ttatccgagccgaactaggt caacccggcaatctcctggg caatgaccacatctataacg tcatcgtaac----agccca cgcgttcgtcataatctttt
+Ovis_aries           taattcgcgccgaactaggc caacccggaactctactcgg agatgaccaaatctat---- ---------------gcaca tgcattcgtaatgattttct
+
+Amblyomma_cajennense ttatagttataccaattata attggtgggtttggtaactg actaattcctatcatgctag gtgcccctgatatggcattt ccccgcataaataacataag
+Nauphoeta_cinerea    ttatagttataccaattcta attggaggatttggaaactg gttagtaccattaatacttg gcgctcccgatatagcattc cctcgaataaataacataag
+_R_Periplaneta_americana ttatagtaataccaattata attgggggatttggtaattg attagtaccattaatattag gagccccagatatagccttc ccacgaataaataatataag
+_R_Chrysomya_megacephala ttatagtaatgccaattata attggaggatttggaaattg actagttcctttaatgttag gagctccagatatagctttc ccacgaataaataatataag
+Cochliomyia_hominivorax ttatagtaatgccaattata attggaggatttggaaattg attagttcctctaatactag gagctcctgatatagctttc ccacgaataaataatataag
+Lucilia_cuprina      ttatagtaataccaattata attggtggatttggaaattg attagtcccattaatactag gagctccagatatagcattc cctcgaataaataatataag
+_R_Musca_domestica   ttatagtaatacctattata attggagggtttggaaattg attagttcctttaatattag gagctccagatatagcattc cctcgaatgaataatataag
+Drosophila_kikkawai  ttatagttataccaattata attggaggatttggaaattg attagttcccttaatattag gagcccctgatatagcattt cctcgaataaataatataag
+Drosophila_ananassae tcatggttataccaattata attggaggatttgggaattg attagttcctttaatattag gagcacctgatatagcattc ccacgaataaataatataag
+Drosophila_erecta    ttatagtaataccaattata attggaggattcggaaattg attagtacctttaatattag gagcccctgatatagcattc ccacgaataaataatataag
+Drosophila_yakuba    ttatagtaatacctattata attggggggtttggaaattg attagtgcctttaatattag gagctcctgacatagcattc ccacgaataaataatataag
+Drosophila_simulans  ttatagttatacctattata attggtggatttggaaattg attagtgcctttaatattag gtgcccctgatatagcattc ccgcgaataaataatataag
+Drosophila_melanogaster ttatagttatacctattata attgggggatttggaaattg attagtgcctttaatattag gtgctcctgatatagcattc ccacgaataaataatataag
+Drosophila_montana   tcatagttataccaattata attggaggattcggtaattg acttgtacctttaatattag gagctcctgatatagctttc ccccgaataaacaatataag
+Drosophila_virilis   ttatagttataccaattata attggaggatttggaaattg acttgtacctttaatattag gagctcctgatatagctttc ccacgaataaataatataag
+Drosophila_mojavensis ttatagtaatacctattata attgggggatttggaaattg actagtacctttaatacttg gggcccctgatatggcattc cctcgaataaataatataag
+Episyrphus_balteatus ttatagtaatacctattata attggaggatttggtaattg attagttccattaatattag gagctcctgatatagcattt cctcgtttaaataatataag
+Drosophila_mulleri   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_sechellia -----gttatacctattata attggtggattcggaaattg attagtacctttaatattag gtgctcctgatatagcattc ccacgaataaataatataag
+_R_Drosophila_bipectinata tta-agtaatacc-attata attggaggatt--ggaattg attattaccttt-atattag gagctcctgatatagcattc ccacgaataaataatataag
+Callosobruchus_maculatus ttatagttataccaattata attgggggattcggaaactg acttgttcccctaatattag gagcccctgatatggctttc ccacgaataaataatataag
+Aphelocoma_coerulescens tcatagtaataccaatcatg attggagggttcggaaactg actggttcctctcatgattg gtgccccagacatagcattc ccacgaataaacaacataag
+Pan_troglodytes      tcatagtaatgcctattata atcggaggctttggcaactg gctagttcccttgataattg gtgcccccgacatggcattc ccccgcataaacaacataag
+Symphalangus_syndactylus tcatagtaatacccattata attgggggctttggcaactg actagtccctctaataatcg gagcccccgacatggcattc cctcgtataaataacataag
+Ovis_aries           ttatagtaatgcctattatg attggagggttcggcaactg cctagttcctctgatgattg gagcccctgatatagcattc cctcggataaataatataag
+
+Amblyomma_cajennense attttgacttttaccccctt cattatgtctattaattaat tcttctttagttgaatcagg tgctggaacaggatgaacag tttatcctccattatcgtca
+Nauphoeta_cinerea    attttgattattaccacctt ctctgactcttttactggca agaagaatagtagaaagagg ggcaggtacaggatgaacag tctaccctcccttagctagt
+_R_Periplaneta_americana attctgattattaccacctt cattaactttattactagct agcagcatagtagaaagagg tgccggaacaggatgaacag tatacccaccactagcaaga
+_R_Chrysomya_megacephala tttctgacttttacctcctg cattaactttattattagta agtagtatagtagaaaatgg ggctggaacaggatgaactg tccacccacctttatcttct
+Cochliomyia_hominivorax tttttgacttttacctcctg cattaactttactattagta agtagtatagtagaaaatgg agctggaacaggatgaactg tttaccctcccctatcttct
+Lucilia_cuprina      tttttgacttttacctcctg cattaactttattattagtt agtagtatagtagaaaacgg agctggaacaggatgaacag tttaccctcctctatcttct
+_R_Musca_domestica   tttttgattattacctcctg cattaactctattattagta agaagtatagtagaaaaggg agctggaacaggttgaactg tatatccacctttatcatca
+Drosophila_kikkawai  attttgattacttcctcctg ctctttcacttttattggta agaagaatagttgaaaatgg agctggtactgggtgaacag tatatccacctttatcttca
+Drosophila_ananassae attttgattactaccccctg ctctttctctattattggta agaagaatagttgaaaatgg agctggtactgggtgaacag tttacccacctctttcagct
+Drosophila_erecta    attttgattactaccccccg ctctttcattattgttagta agtagaatagttgaaaacgg ggctggaacaggttgaactg tttaccctcctttatcttca
+Drosophila_yakuba    attttgattactacctcctg ctctttctttattattagta agaagaatagttgaaaacgg agctggtacaggttgaactg tttaccctcctttatcttca
+Drosophila_simulans  attttgattactaccccctg ctctttctttattattagtg agaagaatagttgaaaacgg agctgggacaggatgaactg tttacccacctttatctgct
+Drosophila_melanogaster attttgacttctacctcctg ctctttctttactattagta agtagaatagttgaaaatgg agctgggacaggatgaactg tttatccacctctatccgct
+Drosophila_montana   attttgactattaccccctg ctttatccttacttttagtt agaagaatagttgaaaacgg agctgggacaggatgaaccg tataccccccattatcagca
+Drosophila_virilis   attttgacttttaccccccg ctttatcattattattagtt agaagaatagttgaaaacgg agctggaacagggtgaacag tttaccctccattatcagca
+Drosophila_mojavensis attttgacttttacctccag ctttaactttattattagta agcagtatagttgaaaacgg agctggaacagggtgaactg tctaccctccgctatcttca
+Episyrphus_balteatus tttttgactattacctcctt ctttaacattattattagta agtagtatagttgaaaatgg agctggaacaggttgaacag tatatcctcctctttctgct
+Drosophila_mulleri   -------------cctcctg ccttaactttattattagta agtagtatggttgaaaatgg agctggaacagggtgaactg tttacccgccgctatctgca
+Drosophila_sechellia attttgattactaccccctg ctctttctttattattagta agaagaatagttgaaaacgg agctggaacaggatgaactg tttatccacctttatctgct
+_R_Drosophila_bipectinata attttgattacttccccctg ctctttctcttttattagtt agaagaatggttgaaaacgg agctggaacaggatgaacag tttatccacctctttcagct
+Callosobruchus_maculatus attttgattactacctccct cattaattctccttttaata agaaggctagttgaaagggg ggcaggtactgggtgaacgg tttaccccccattagccagt
+Aphelocoma_coerulescens cttctgacttctccctccat cattcctactcctcctagcc tcttcaacagtagaagcggg ggtaggaacaggatgaactg tgtaccctccactcgctgga
+Pan_troglodytes      cttctggctcctgccccctt ctctcctacttctacttgca tctgccatagtagaagccgg cgccggaacaggttgaacag tctaccctcccttagcggga
+Symphalangus_syndactylus cttctggcttcttcctccct ctttcctattactgcttgcc tccgccatagtagaagccgg cgccggaacaggatgaacag tctatcccccattggcagga
+Ovis_aries           cttttgactccttccccctt ctttcctgttactcctagca tcctctatagtcgaggccgg agcaggaacaggttgaaccg tataccctcctctagcaggc
+
+Amblyomma_cajennense aatctctcccattatggccc ctcagtagatttagctattt tttctctccatttggctgga gcatcatccatcctaggatc aattaatttcattactacta
+Nauphoeta_cinerea    aatattgcccatgccggagc ctctgttgacttagctatct tttcattacatctagcaggt gtctcatcaattttaggagc tgtcaatttcatttcaacaa
+_R_Periplaneta_americana ggtattgcccatgccggagc atctgttgatctagcaattt tttcattacatctagcaggt gtatcctcaattctaggagc tgttaattttatctccacaa
+_R_Chrysomya_megacephala aatattgcccatggaggagc atcagttgatttagctattt tctctttacacttagcagga atttcttcaattttaggagc tgtaaattttattacaactg
+Cochliomyia_hominivorax aatattgctcacggaggagc ttctgttgatttagcaattt tttccttacacctagccgga atctcttcaattttaggagc agtaaattttattacaactg
+Lucilia_cuprina      aatattgctcacggaggagc ttctgttgatttagctattt tttctcttcatttagcagga atttcctcaattttaggagc tgtaaattttattactacag
+_R_Musca_domestica   attattgcccatggtggagc ttcagttgatttagctattt tctctctacacttagcagga atttcttcaattttaggagc agtaaattttattacaactg
+Drosophila_kikkawai  ggaattgctcatggaggagc ttctgtagatttagcaattt tttcattacatttagctgga atttcatcaattttaggagc tgtaaattttattacaacag
+Drosophila_ananassae ggaattgctcatggaggggc ttcagttgatctagctattt tttcattacatttagccgga atttcttcaattttaggagc tgtaaattttattacaacag
+Drosophila_erecta    ggtattgctcatgggggagc ttcagtagatttagctattt tttctttacatctagccggg atttcttcgattttaggagc tgtaaattttattacaactg
+Drosophila_yakuba    ggtatcgctcatggtggagc ttctgtagatttagctattt tttctcttcatttagctgga atttcttcaattttaggagc tgtaaattttattacgactg
+Drosophila_simulans  ggaattgcccacggtggagc ttcagttgatttagctattt tttctttacacttagcggga atttcctcaattctaggagc tgtaaattttattacaactg
+Drosophila_melanogaster ggaattgctcatggtggagc ttcagttgatttagctattt tttctctacatttagcagga atttcttcaattttaggagc tgtaaattttattacaactg
+Drosophila_montana   ggaattgctcatggaggagc ttctgttgatctagctattt tttctttacatttagctgga atctcttcaattttaggagc tgtaaatttcattacaactg
+Drosophila_virilis   ggaattgctcatggaggagc ttctgtagatttagctattt tctctttacatttagcagga atttcttcaattttaggagc tgtaaattttattacaacag
+Drosophila_mojavensis ggtattgctcacggaggagc ctcagtagatttagcaattt tttctttacatttagcagga atttcttctattttaggtgc cgtaaattttattacaacag
+Episyrphus_balteatus ggtattgctcatggaggagc ttctgtagatttagcaattt tttctttacatttagcagga atatcatcaattttaggagc tgtaaattttattacaactg
+Drosophila_mulleri   ggaattgcacatgggggagc ttcagtagatttagcaattt tttcattacatttagctgga atttcttctattctaggggc agtaaattttattacaacag
+Drosophila_sechellia ggaattgcccatggtggagc ttcagttgatttagctattt tttctttacatttagctgga atttcttcaattctaggagc tgtaaattttattacaactg
+_R_Drosophila_bipectinata ggaattgctcatggaggagc ttcagttgatttagcaattt tttcacttcatttagctgga atctcatcaattttaggagc agtaaattttattacaacag
+Callosobruchus_maculatus aacattgcccatagaggatc atctgttgacttagccattt ttaggcttcatttagcagga atctcctctattctaggagc tgtaaattttattactactg
+Aphelocoma_coerulescens aacctggcccacgccggagc ctcagtcgacctagctattt tctccctacatctagctggt atttcctctattctaggagc aattaactttatcaccacag
+Pan_troglodytes      aactactcgcatcctggagc ctccgtagacctaaccatct tctccttacatctggcaggc atctcctctatcctaggagc cattaacttcatcacaacaa
+Symphalangus_syndactylus aactattcccacccaggagc ctctgttgatttaaccattt tttctctacacctggctgga gtatcatctatcctaggggc tattaacttcattactacaa
+Ovis_aries           aacctagctcatgcaggagc ctcagtagacctaagcattt tctccctacacctggcaggt gtttcctcaattctaggagc cattaattttatcacaacta
+
+Amblyomma_cajennense tcatcaatatacgttcaaat ggaataactatagaacgtat ccctctatttgtatgatcag tatttattactacaattctt cttcttctttcccttcctgt
+Nauphoeta_cinerea    ttattaatatgaagcccatt agaataacaccagaacgaat cccattatttgtttgggctg taggaattacagccttatta ttactcctatcattaccagt
+_R_Periplaneta_americana caattaatataaaacctatt aacataaaaccagaacgaat tcctctttttgtatgatcag tagctattacagcattatta ttattattatctctaccagt
+_R_Chrysomya_megacephala taattaatatacgatctaca ggaattacatttgatcgaat acctttatttgtatgatctg tagttattactgctctatta ttattattatctttaccagt
+Cochliomyia_hominivorax taattaatatacgatcaaca ggaattacattcgatcgaat acctttatttgtttgatctg tagtaattactgctctttta cttttattatctttaccagt
+Lucilia_cuprina      ttattaatatacgatcaaca ggaattacttttgatcgaat acctttatttgtatgatcag tagtaattacagctttatta cttttattatcattaccagt
+_R_Musca_domestica   ttattaacatacgatcaaca ggaattacattcgatcgaat gcctttatttgtttgatcag ttgtaattactgcattatta ttattattatctttcctgtt
+Drosophila_kikkawai  ttattaatatacgatcaaca ggaattactttagatcgaat acctttatttgtatgatcag ttgtaattactgctttatta cttttattatcactaccagt
+Drosophila_ananassae taattaatatacgatcaact ggaattactctagatcgtat acctttatttgtttgatcgg tagtaattacagctttatta ttacttttatctttaccagt
+Drosophila_erecta    ttattaatatacgatctact ggaattacattagatcgaat acctttatttgtttgatcag tagttattactgctttatta cttttattatctttaccagt
+Drosophila_yakuba    taattaatatacgatcaact ggaattacattagaccgaat acctttatttgtatgatcag tagttattactgctttatta cttttactatctttaccagt
+Drosophila_simulans  taattaatatacggtcaaca ggaatttcattagatcgaat acctttatttgtttgatcag tagtaattactgctttatta ttacttttatcattaccagt
+Drosophila_melanogaster taattaatatacgatcaaca ggaatttcattagatcgtat acctttatttgtttgatcag tagttattactgctttatta ttattattatcacttccagt
+Drosophila_montana   taattaatatacgatcttca gggattactttagaccgaat acctttatttgtctgatcag ttgtaattacagctttatta ctacttttatccttaccagt
+Drosophila_virilis   taattaatatacgatcttca ggaattactttagaccgtat acctttatttgtttgatccg ttgtaattacagctctttta cttcttttatctcttcctgt
+Drosophila_mojavensis taattaatatacgatcaact ggaattactcttgaccgtat gcctttatttgtgtgatctg ttgtaattacagctttatta ctactattatcattacctgt
+Episyrphus_balteatus ttattaatatgcgatctcat ggaattacttatgatcgaat acctttatttgtttgatcag ttgtaattacagcattatta ttacttttatcattacctgt
+Drosophila_mulleri   taattaatatacgatctaca ggaattactcttgatcgaat accattatttgtttgatcag ttgttattacagctttatta ttgcttttatctcttcctgt
+Drosophila_sechellia taattaatatacgatcaaca ggaatttcattagatcgtat acctttatttgtttgatcag tagttattactgccttatta ttactgttatcattgccagt
+_R_Drosophila_bipectinata taattaatatacgatcttct ggaattaccttagatcgaat acctttatttgtatgatctg tagttattacagctttatta ttattattatctttacctgt
+Callosobruchus_maculatus taatcaatatacgaccaaga ggaataaaaatagaccaaat acccctattctcatgggcag ttacaatcacagcaatttta ctccttctttcactcccagt
+Aphelocoma_coerulescens caatcaacataaaacctcca gctttatcccaataccaaac ccccctattcgtatgatccg tactaatcaccgcagtactg ctcctcctttctctccccgt
+Pan_troglodytes      ttattaatataaaacctcct gccatgacccaataccaaac acccctcttcgtctgatccg tcctaatcacagcagtctta cttctcctatccctcccagt
+Symphalangus_syndactylus tcatcaacataaaaccccca gctatatcccaatatcaaac acctctctttgtctgatccg tcctaattacagcagtccta ctccttctctccctaccagt
+Ovis_aries           ttattaacataaacccccct gcaatatcacaatatcaaac ccccttgtttgtatgatctg tactgatcactgccatacta ctcctcctctcacttcctgt
+
+Amblyomma_cajennense tctagcaggagctattacta tactattaacagaccggaat ttcaatacatcattttttga cccttcaggtgggggagatc ctattttgtaccaacattta
+Nauphoeta_cinerea    attagctggtgcaattacaa tactccttactgatcgaaat ttaaatacatcattttttga cccagcagggggtggagatc ctatcttatatcaacaccta
+_R_Periplaneta_americana acttgctggggcaattacta tattattaactgatcgaaat ctaaatacatccttttttga tccagcaggaggaggtgatc caattttataccaaca----
+_R_Chrysomya_megacephala attagctggagctattacta tattattaactgaccgaaat ctaaatacttcattctttga tccagcaggaggaggagatc ctattttataccaaca----
+Cochliomyia_hominivorax tttagccggagcaatcacta tacttttaacagaccgaaat ttaaatacttcattttttga cccagcaggaggaggggatc caatcttgtaccaacattta
+Lucilia_cuprina      attagctggagctattacaa tacttttaacagatcgaaat cttaatacatcattctttga cccagcaggaggaggagacc caattttatatcaacattta
+_R_Musca_domestica   cttagctggagctattacta tactattaactgatcgaaat ttaaatacttcattctttga cccagctggaggaggtgatc caattctataccaaca----
+Drosophila_kikkawai  attagcaggagcaattacaa tattattaactgatcgtaat ttaaatacttcattttttga tccagctggaggaggggacc ctattttataccaacattta
+Drosophila_ananassae attggctggagctattacca tattattaacagatcgaaat ttaaatacatcattttttga cccagctggagggggagatc caattttataccaacattta
+Drosophila_erecta    tttagccggagctatcacaa tattattaacagaccgaaat ttaaatacatcattttttga tccagctggaggaggagacc caattttatatcaacattta
+Drosophila_yakuba    tcttgccggagctattacta tattattaacagaccgaaat ttaaatacttctttttttga tccagctggaggaggagatc ctattttgtaccaacattta
+Drosophila_simulans  attagctggagctattacta tattattaacagatcgaaat ttaaacacatc--------- -------------------- --------------------
+Drosophila_melanogaster actag--------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_montana   tttagccggagctatcacta tattattaacagaccgaaat cttaacacctcattttttga cccggctggtggaggggatc caattttataccaacactta
+Drosophila_virilis   tttagcaggagctattacaa tattattaacagaccgaaat cttaatacttcattctttga cccagctggtggaggggatc caattttataccaacattta
+Drosophila_mojavensis cttagctggggctattacaa tattattaacagaccgaaat ttaaatacttcattttttga ccccgcaggaggaggagacc caattctttaccaacattta
+Episyrphus_balteatus attagcaggagctattacta tacttttaactgatcgaaat ttaaatacttcattctttga tccagcaggaggaggagatc caattttatatcaacattta
+Drosophila_mulleri   tttagccggagctattacga tactattaactgaccgaaat ttaaatacatcattttttga cccagcaggaggaggtgacc caattctttaccaacattta
+Drosophila_sechellia attagcgggagctattacta tattattaacagatcgaaat ttaaatacatcattttttga cccagctggaggaggagacc ctattttataccaacattta
+_R_Drosophila_bipectinata tttagctggagctattacta tactactaactgatcgaaat ttaaatacat---------- -------------------- --------------------
+Callosobruchus_maculatus attagctggtgctattacta tattattaacagaccgaaat ttaaacacttcattctttga ccccgcaggaggaggggacc ccattctctatcaacac---
+Aphelocoma_coerulescens tcttgctgccggaatcacta tgcttctaacagaccgtaac ctgaataccaccttcttcga cccagcgggaggtggcgacc cagtactataccaacaccta
+Pan_troglodytes      cctagctgctggcatcacca tactattgacagatcgtaac ctcaacactaccttcttcga cccagccgggggaggagacc ctattctat-----------
+Symphalangus_syndactylus tttagccgctggcatcacca tactactaacagaccgtaac ctcaacaccactttctttga cccagctggaggaggagacc --------------------
+Ovis_aries           attagcagctggtatcacaa tactactgacagaccaaaac ctaaacacaaccttctttga cccagcaggaggaggagacc ccatcttatatcaacaccta
+
+Amblyomma_cajennense ttt----------------- -------------------- -------------------- -----
+Nauphoeta_cinerea    tcctgattttttggtcacct ggaagttt------------ -------------------- -----
+_R_Periplaneta_americana -------------------- -------------------- -------------------- -----
+_R_Chrysomya_megacephala -------------------- -------------------- -------------------- -----
+Cochliomyia_hominivorax ttttgattttttggacatcc tgaagtatacatttt----- -------------------- -----
+Lucilia_cuprina      ttttgattttttggcccccg ggaa---------------- -------------------- -----
+_R_Musca_domestica   -------------------- -------------------- -------------------- -----
+Drosophila_kikkawai  ttt----------------- -------------------- -------------------- -----
+Drosophila_ananassae ttt----------------- -------------------- -------------------- -----
+Drosophila_erecta    ttt----------------- -------------------- -------------------- -----
+Drosophila_yakuba    ttt----------------- -------------------- -------------------- -----
+Drosophila_simulans  -------------------- -------------------- -------------------- -----
+Drosophila_melanogaster -------------------- -------------------- -------------------- -----
+Drosophila_montana   ttt----------------- -------------------- -------------------- -----
+Drosophila_virilis   ttt----------------- -------------------- -------------------- -----
+Drosophila_mojavensis ttt----------------- -------------------- -------------------- -----
+Episyrphus_balteatus ttt----------------- -------------------- -------------------- -----
+Drosophila_mulleri   ttttgattttttggccaccc a------------------- -------------------- -----
+Drosophila_sechellia ttttgattttttggtcatcc tgaagtttatattttaattt tacctggatttggaataatt tctca
+_R_Drosophila_bipectinata -------------------- -------------------- -------------------- -----
+Callosobruchus_maculatus -------------------- -------------------- -------------------- -----
+Aphelocoma_coerulescens -------------------- -------------------- -------------------- -----
+Pan_troglodytes      -------------------- -------------------- -------------------- -----
+Symphalangus_syndactylus -------------------- -------------------- -------------------- -----
+Ovis_aries           ttc----------------- -------------------- -------------------- -----
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+END;

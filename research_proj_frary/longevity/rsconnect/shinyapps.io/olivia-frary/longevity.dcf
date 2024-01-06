@@ -1,0 +1,12 @@
+name: longevity
+title: longevity
+username: olivia-frary
+account: olivia-frary
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10725841
+bundleId: 8011559
+url: https://olivia-frary.shinyapps.io/longevity/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

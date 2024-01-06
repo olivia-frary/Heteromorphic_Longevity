@@ -105,6 +105,12 @@ The figure above shows the difference between the lifespan of homogametic and he
 The following interactive version of this plot allows you to look at the data
 based on class, order, and family by changing the colors of the points. 
 
+```{r}
+knitr::include_url("https://olivia-frary.shinyapps.io/longevity/", height = 650)
+```
+
+
+
 ```{r shiny_app, eval=FALSE, include=FALSE}
 categoricalVars <- c("class","order","family","sex_determination")
 shinyApp(
