@@ -1,0 +1,307 @@
+#NEXUS
+
+
+BEGIN DATA;
+ DIMENSIONS NTAX=10 NCHAR=2353;
+ FORMAT DATATYPE=DNA INTERLEAVE MISSING=-;
+[Name: Musca_domestica  Len:  2353  Check:    0]
+[Name: Drosophila_montana Len:  2353  Check:    0]
+[Name: Drosophila_virilis Len:  2353  Check:    0]
+[Name: Drosophila_kikkawai Len:  2353  Check:    0]
+[Name: Drosophila_bipectinata Len:  2353  Check:    0]
+[Name: Drosophila_ananassae Len:  2353  Check:    0]
+[Name: Drosophila_yakuba Len:  2353  Check:    0]
+[Name: Drosophila_simulans Len:  2353  Check:    0]
+[Name: Drosophila_sechellia Len:  2353  Check:    0]
+[Name: _R_Drosophila_melanogaster Len:  2353  Check:    0]
+
+MATRIX
+Musca_domestica      -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_montana   tagcacagcggcgcccagct atgagcagcacaatgcctgg tacagcagcatgtttgcagc caacatcaagcaggagccca tgtcgcatcatcatcatcat
+Drosophila_virilis   tagcacagcggcgcccagct atgagcagcacaatgcctgg tacagcagcatgtttgcggc taacatcaagcaggagcccc tgtcg---catcatcatcat
+Drosophila_kikkawai  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_bipectinata -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_ananassae -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_yakuba    -------------------- -----cagcacaacgcctgg tacaacagcatgttcgcggc caatatcaaacaggagcc-- --------------------
+Drosophila_simulans  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_sechellia -------------------- -------------------- -------------------- -------------------- --------------------
+_R_Drosophila_melanogaster -------------------- -------------------- -------------------- -------------------- --------------------
+
+Musca_domestica      -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_montana   catcatgcccagcagcatca cgataaccacagcaacagca acagcggggcgagcagtccg cgccaatccccgctgccatc accgaatccgcccagcaccc
+Drosophila_virilis   catcatggccagcagcatca cgataatcacagcaacagca acagcggtgcgagcagtccg cggcaatccccgttgccgtc acccaatccgcccagcaccc
+Drosophila_kikkawai  -------------------- -------------------- --agtgtggccagcagtccc cgccagtcgccgttgccctc tcccttggcggccagcagtc
+Drosophila_bipectinata -------------------- -------------------- --agcctgaccagcagcccc cgccagtcgccgattccctc gccattaaatccgggaaacc
+Drosophila_ananassae -------------------- -------------------- --agtctggccagcagcccc cgccagtcgcccataccctc gccgatgaaccccggcaacc
+Drosophila_yakuba    -------------------- gggtcatcatctcgatggga atagcgtggccagcagtccg cgccaatcgcccattccctc gac------------caatc
+Drosophila_simulans  -------------------- -------------------- --agcgtggccagcagtccg cgccaatcgcccataccctc gac------------caatc
+Drosophila_sechellia -------------------- -------------------- -------------------- -------------------- --------------------
+_R_Drosophila_melanogaster -------------------- -------------------- -------------------- --------------gccatc agaaggacaaccagacaatc
+
+Musca_domestica      -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_montana   ----------------agct ggagcaatacctcaagcaac agcaacaacaa--------- -------------------c agcagcagcagcccatggat
+Drosophila_virilis   ----------------agct ggagcagtacctcaagcaac agcagcaacagcagcagcag cagcag-------------c agcagcagcagcccatggat
+Drosophila_kikkawai  ----------------agct ggagcagttcctaaagcagc agcagcaccaccaacagcag cagcagcatcatca-gtcac accagcaacagcccatggat
+Drosophila_bipectinata ----------------aact ggaacagttcctcaagcagc aacaccagcagcatcat--- -------------------c accaacaacagccgatggat
+Drosophila_ananassae ----------------agct ggaacagttcctcaagcagc aacatcaccag--------- -------------------c aacagcagcagcccatggat
+Drosophila_yakuba    ----------------acct ggaacagttcctcaagcagc agcaacagcagcag------ -------------------c atcagcagcagcccatggat
+Drosophila_simulans  ----------------acct ggaacagttcctcaagcagc agcaacagcagcag------ -------------------c atcagcagcagcccatggat
+Drosophila_sechellia -------------------- -------------------- -------------------- -------------------- --------------------
+_R_Drosophila_melanogaster cttttgcgggcataaaaaat atggtagttgccgaaataaa atcaacgtaatg-------- -------tttatgacttttt accggcgctgccccacgtac
+
+Musca_domestica      -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_montana   acactgtgc--gcggctgcg atgacgccgtcgccgagcaa caacgatcagaacagcctgc agcactttgatgccacgctg cagcagcaactgttgcagca
+Drosophila_virilis   acactgtgc--gcggctgcg atgacgccgtcgccaagcaa caacgatcagaacagcctgc agcattttgatgccacgctg cagcagcaactgttgcagca
+Drosophila_kikkawai  actatgtgc--------gcc atgacgccctcgcccagcca gaacgaccagaacagcctgc aacactttgatgccacgctg cagcaacagttgctgcagca
+Drosophila_bipectinata accctctgc--------gcc atgacaccgtctcccagcca aaacgatcagaacagcctgc agcattttgatgccacgctg cagcagcagctgatgcagca
+Drosophila_ananassae accctatgc--------gcc atgacaccgtctcctagcca gaacgatcagaacagcctgc agcacttcgatgccacactc cagcagcaactgctgcagca
+Drosophila_yakuba    accctatgc--------gcc atgaccccgtcccccagcca aaacgatcagaacagcctgc agcactacgatgccagcttg cagcaacagttgctgcagca
+Drosophila_simulans  accctatgc--------gcc atgaccccgtcccccagcca aaacgatcagaacagcctgc agcactacgatgccagcttg cagcaacagttgctgcagca
+Drosophila_sechellia -------------------- -------------------- -------------------- -------------------- ---------aggatattgta
+_R_Drosophila_melanogaster cccccactcccctgctcgtg atggccctcctcctttgac- -------------------- ------------ctggctgg ttgacactttcgttttggta
+
+Musca_domestica      -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_montana   gcagcaataccagcaacact ttcaggctgcgcagcatcaa cagcagcagcagcagcagca gcatcatcacctgg-cactg ggcggcttcaatccgctgac
+Drosophila_virilis   gcagcagtaccagcaacact ttcaggcagcgcagcat--- ---------cagcaacagca gcatcatcacctgg-cactg ggcggcttcaatccgctgac
+Drosophila_kikkawai  gcagcagtaccagcagcact tccaggcagcccagcag--- ---------cagcaccatca ccaccaccacctga----tg ggtggctttaatccgctgac
+Drosophila_bipectinata gcagcagtaccagcagcact tccaggcggcccagcag--- ---------cagcaccacca ccaccaccacctga----tg ggtggcttcaatccgctgac
+Drosophila_ananassae acagcagtaccagcagcact tccaggcggcccagcag--- ---------cagcaccacca tcaccaccacctga----tg ggtggcttcaatccgctgac
+Drosophila_yakuba    gcagcagtaccagcagcatt tccaggcagcccagcag--- ---------caacatcatca ccatcaccatctga----tg ggtggcttcaatccgctgac
+Drosophila_simulans  gcagcagtaccagcagcatt tccaggcagcccagcag--- ---------caacatcatca ccatcaccatctga----tg ggtggcttcaatccgctgac
+Drosophila_sechellia gccatattacc--cagtgtc tccattttgtacacaaa--- ----------atcactcaaa tccccgtcaggggg----tg ggtgccgcctagccacccct
+_R_Drosophila_melanogaster atattttggctgacaggcac ttttgttcgtgtgtcat--- ---------tatcgttttgc ccagatccggatggtcgagc gggatttatgagcaggcgac
+
+Musca_domestica      -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_montana   gccgccgggtctgcccaatc ccatgca---gcactattac ggcggcaacatgcgtcccag cccgcagccgacgccgacag cagcgccagctg--------
+Drosophila_virilis   gccgccgggtctgcccaatc ccatgca---gcactattat ggcggcaacatgcgacccag cccgcagccgacgccaacag cagcgccaactg--------
+Drosophila_kikkawai  gccgcctggtctgcccaatc ccatgca---gcatttctat ggcggcaacctgcgtcccag ccctcagcccacgcccacaa ctggagccgtt---------
+Drosophila_bipectinata gccgccgggtctgcccaatc ccatgca---gcatttctac ggcggaaacctccgaccgag cccgcagcccacacccacag cgccctcggccgggacagca
+Drosophila_ananassae gccgcccggtctgcctaatc ccatgca---gcacttctac ggcggcagcctgcggcccag tccccagcccacaccgacag caccgtccgct---------
+Drosophila_yakuba    gccacctggtctgcccaatc ccatgca---gcacttctat ggcggaaatctgcgtcccag tccgcagcccacgcccacat ccgcctccacag---ttgcc
+Drosophila_simulans  gccacctggtctgcccaatc ccatgca---gcacttctat ggcggaaatctgcgtcccag tccgcagcccacgcccacat ccgcctccacag---ttgcc
+Drosophila_sechellia ggcgtattttttgttagggg tggtgcc---gcaagcacac caaaaaaa------------ -------------------- --------------------
+_R_Drosophila_melanogaster atggtacgattagatcgaaa cgatacaaggacctttgtac agtgaggtcttgagatttag ttgttat------------- --------------------
+
+Musca_domestica      -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_montana   -cggtggcagcggccataca gaccggcgacaagctgcaag cgctgacgccgccaatggat gtgacgccgccaaagtcgcc ggccaagtcgcagcagtcga
+Drosophila_virilis   -cggtggcagcggcaataca gaccggcgacaagctgcagg cgctgacgccgccaatggat gtgacgccgccgaaatcgcc ggccaagtcgcagcagtcga
+Drosophila_kikkawai  ---gcccccgttgcggtggc aaccagcgagaagttgcagg ctctcacaccgcccatggat gtgacgccgcccaagtcgcc ggccaagtcc----------
+Drosophila_bipectinata gtggccgcggggacagcggt aaccagcgagaaactgcagg cactcacccctccgatggac gtgacgccgccaaagtcgcc cgccaagtcc----------
+Drosophila_ananassae ---gcctcggtgacctccac caccagcgagaaactgcagg cactcaccccacctatggac gtgacaccgcccaagtcgcc cgccaagtcc----------
+Drosophila_yakuba    cccgttgcagttgccaccgg cagcagtgagaaattgcagg cgcttacaccgcccatggat gtcacaccgcccaagtcgcc ggccaagtctagtcaatcga
+Drosophila_simulans  cccgttgcagttgccaccgg cagcagtgagaaattgcagg cgcttacaccgcccatggat gtcacaccgcccaagtcgcc ggccaagtct----------
+Drosophila_sechellia ---------gagaaaaaaaa gaaaagcgaggaa------- -------------------- -------------------- --------------------
+_R_Drosophila_melanogaster -------------------a gatagtggagaaaatgcaa- -------------------- -----------caaactatt taccaacgtgtat-------
+
+Musca_domestica      -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_montana   gcgcggagccagagaaggag cacgatctcatgtcgaactc gagcgaggacatgaagtaca tggccgagtccgaggacgac gacagcaacatacgcatgcc
+Drosophila_virilis   gcgcggagccagagaaagaa cacgatctcatgtcgaactc gagcgaggacatgaagtaca tggccgagtccgaggacgac gacagcaacatacgcatgcc
+Drosophila_kikkawai  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_bipectinata -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_ananassae -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_yakuba    atattgagcccgagaaggag cacgatcagatgtcgaactc cagcgaggacatgaagtaca tggctgagtccgaggacgat gataccaacatccggatgcc
+Drosophila_simulans  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_sechellia -------------------- -------------------- -------------------- -------------------- --------------------
+_R_Drosophila_melanogaster -------------------- -------------------- -------------------- -------------------- --------------------
+
+Musca_domestica      -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_montana   catctacaattcgcacggca agatgaagaactacaagtgc aagacgtgcggcgtcgtggc catcaccaaggtggacttct gggcacacacgcgcacccac
+Drosophila_virilis   catctacaattcgcacggca agatgaagaactacaagtgc aagacgtgcggcgttgtggc catcaccaaggtggacttct gggcacacacgcgcacccac
+Drosophila_kikkawai  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_bipectinata -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_ananassae -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_yakuba    catctacaattcgcacggca agatgaagaactacaagtgc aagacttgcggcgtggtggc catcaccaaggtggactttt gggcccacactcgcacccac
+Drosophila_simulans  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_sechellia ---------------aaata aaatgaaaa----------- -------------------- -------------------- --------------------
+_R_Drosophila_melanogaster --------gttcccaagata gtata--------------- -------------------- -------------------- --------------------
+
+Musca_domestica      -------------------- -------------------- --------------aaacat catctggagtatcacatacg caaacacaagaatctcaagc
+Drosophila_montana   atgaagcccgacaagatact gcagtgcgccaagtgcccgt ttgtcaccgagttcaagcac catctcgagtaccacatacg caagcacaagaaccagaagc
+Drosophila_virilis   atgaagcccgacaagatact gcagtgcgccaagtgtccgt ttgtcaccgagttcaagcac catctcgagtaccacatacg caagcacaagaaccaaaagc
+Drosophila_kikkawai  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_bipectinata -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_ananassae -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_yakuba    atgaaacccgacaagatcct gcagtgcccgaagtgcccgt ttgtcaccgagttcaagcac cacttggagtaccacatccg gaagcacaagaaccaaaagc
+Drosophila_simulans  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_sechellia -------------------- -------------------- -------------------- -------------acaagcg gaaaaaagaggaaaaaactc
+_R_Drosophila_melanogaster -------------------- -------------------- -------------------- ------------cacaccta gaactatatgtatgatagtg
+
+Musca_domestica      cattccagtgtgacaagtgt tcctacagctgtgtcaacaa gtccatgt----tgaattcg catcgcaaatcccactcctc ggtgtatcagtatcgctgtg
+Drosophila_montana   ccttccagtgcgacaagtgc agctacacctgcgtcaacaa gtccatgt----tgaactcg caccgcaagtcgcacagctc cgtctatcagtatcgctgcg
+Drosophila_virilis   ccttccagtgcgacaagtgc agctacacctgcgtcaataa gtccatgt----tgaactcg catcgcaagtcgcacagctc cgtctatcagtatcgctgcg
+Drosophila_kikkawai  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_bipectinata -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_ananassae -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_yakuba    ccttccagtgcgacaaatgc agctacacgtgtgtcaacaa atccatgt----tgaactcg caccgcaagtcgcacagttc cgtgtatcagtaccgttgtg
+Drosophila_simulans  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_sechellia gacgcaggcgcagtgaatg- ---aatgaatgaatgaatat gcccac-------------- taaccccactctctctgttt tcttatccattacagccg--
+_R_Drosophila_melanogaster cattcta------------- ---aatatctaagctgataa atatatattttctatggtct aaatacccattaaattctac caagacccattatcatc---
+
+Musca_domestica      cggactgtgactatgccacc aagtactgccactcgttcaa actgcatctgcgtaaatatg aacac--------------- --------------------
+Drosophila_montana   ccgactgcgactatgccacc aaatactgccatagcttcaa gctgcatctgcgcaaatatg gccacaagcccggcatggt- --------------------
+Drosophila_virilis   ccgactgcgactatgccacc aaatactgccacagcttcaa gctgcatctgcgcaaatatg gccacaagcccggcatggt- --------------------
+Drosophila_kikkawai  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_bipectinata -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_ananassae -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_yakuba    cggattgtgattacgccacc aagtattgccacagcttcaa gctgcatctgcgcaagtatg gccacaagcccggcatggtt ttggatgaagatggcacccc
+Drosophila_simulans  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_sechellia -------------------- -------------------- -------------------- -------------------- --------------------
+_R_Drosophila_melanogaster -------------------- -------------------- -------------------- -------------------- --------------------
+
+Musca_domestica      -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_montana   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_virilis   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_kikkawai  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_bipectinata -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_ananassae -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_yakuba    gaatccctcgctggtcatcg atgtctacggcacgcgtcgt ggtccgaagagcaagaatgg tggaccaattgccagtggag gtagtggcagcggcagccgg
+Drosophila_simulans  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_sechellia -------------------- -------------------- -------------------- -------------------- --------------------
+_R_Drosophila_melanogaster -------------------- -------------------- -------------------- -------------------- --------------------
+
+Musca_domestica      -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_montana   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_virilis   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_kikkawai  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_bipectinata -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_ananassae -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_yakuba    aagccaaatgttgcagctgt cgctccgcagcaacagcaat cccagccagctcaaccagcc acttctcagctgagtgctgc cctgcaaggattccccctgg
+Drosophila_simulans  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_sechellia -------------------- -------------------- -------------------- -------------------- --------------------
+_R_Drosophila_melanogaster -------------------- -------------------- -------------------- -------------------- --------------------
+
+Musca_domestica      -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_montana   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_virilis   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_kikkawai  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_bipectinata -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_ananassae -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_yakuba    ttcaaagcaactctgctcct ccggcggcatctccagtgct cccgctgcccgcctcacctg ccaagagtgtggccagcgtg gaacagacgcccagcttgcc
+Drosophila_simulans  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_sechellia -------------------- -------------------- -------------------- -------------------- --------------------
+_R_Drosophila_melanogaster -------------------- -------------------- -------------------- -------------------- --------------------
+
+Musca_domestica      -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_montana   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_virilis   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_kikkawai  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_bipectinata -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_ananassae -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_yakuba    cagtccagccaatcttctgc ctcctctggccagccttctg cagcagaaccgcaacatggc cttcttcccctactggaacc tcaatctccagatgctggct
+Drosophila_simulans  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_sechellia -------------------- -------------------- -------------------- -------------------- --------------------
+_R_Drosophila_melanogaster -------------------- -------------------- -------------------- -------------------- --------------------
+
+Musca_domestica      -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_montana   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_virilis   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_kikkawai  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_bipectinata -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_ananassae -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_yakuba    gcccagcagcaggccgctgt cttggcccaattgtcgccac gaatgcgagagcaactgcag caacagaaccagcagcagag cgacaatgaagaggaggagc
+Drosophila_simulans  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_sechellia -------------------- -------------------- -------------------- -------------------- --------------------
+_R_Drosophila_melanogaster -------------------- -------------------- -------------------- -------------------- --------------------
+
+Musca_domestica      -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_montana   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_virilis   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_kikkawai  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_bipectinata -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_ananassae -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_yakuba    aggacgatgagtacgagcgc aagtcggtggactccgccat ggatctgtcccaaggaacgc cggtgaaggaggatgaccag caccagcagcagcaacaacc
+Drosophila_simulans  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_sechellia -------------------- -------------------- -------------------- -------------------- --------------------
+_R_Drosophila_melanogaster -------------------- -------------------- -------------------- -------------------- --------------------
+
+Musca_domestica      -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_montana   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_virilis   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_kikkawai  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_bipectinata -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_ananassae -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_yakuba    gcagcaaccgctcgccatga atctcaaggtggaggaggag gccacgccgctgatgagtag ctcgaatgcctcgaggcgca agggacgcgtcctcaagctg
+Drosophila_simulans  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_sechellia -------------------- -------------------- -------------------- -------------------- --------------------
+_R_Drosophila_melanogaster -------------------- -------------------- -------------------- -------------------- --------------------
+
+Musca_domestica      -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_montana   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_virilis   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_kikkawai  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_bipectinata -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_ananassae -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_yakuba    gacactctgcttcaactgcg atcggaggccatgacctctc ccgagcaactcaaagtaccc agcacacccatgcccactgc atcctcgcccattgctggcc
+Drosophila_simulans  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_sechellia -------------------- -------------------- -------------------- -------------------- --------------------
+_R_Drosophila_melanogaster -------------------- -------------------- -------------------- -------------------- --------------------
+
+Musca_domestica      -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_montana   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_virilis   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_kikkawai  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_bipectinata -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_ananassae -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_yakuba    gcaagcccatgcctgaggat cactgctcgggaaccagctc ggcggatgagtccatggaga cggcccatgtgccgcaggcc aataccagtgccagttccac
+Drosophila_simulans  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_sechellia -------------------- -------------------- -------------------- -------------------- --------------------
+_R_Drosophila_melanogaster -------------------- -------------------- -------------------- -------------------- --------------------
+
+Musca_domestica      -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_montana   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_virilis   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_kikkawai  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_bipectinata -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_ananassae -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_yakuba    ggcgtccagctcagggaaca gctccaatgccagtagcaac ggcaacagcagcagcaattc cagcagcaatggtacctcct cagcggctgcagctcctgca
+Drosophila_simulans  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_sechellia -------------------- -------------------- -------------------- -------------------- --------------------
+_R_Drosophila_melanogaster -------------------- -------------------- -------------------- -------------------- --------------------
+
+Musca_domestica      -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_montana   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_virilis   -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_kikkawai  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_bipectinata -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_ananassae -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_yakuba    tccggaacgccggcggcggc gggcgccatctacgagtgca agtactgtgatatcttcttc aaggacgccgtgctctacac catccacatgggctaccaca
+Drosophila_simulans  -------------------- -------------------- -------------------- -------------------- --------------------
+Drosophila_sechellia -------------------- -------------------- -------------------- -------------------- --------------------
+_R_Drosophila_melanogaster -------------------- -------------------- -------------------- -------------------- --------------------
+
+Musca_domestica      -------------------- -------------------- -------------
+Drosophila_montana   -------------------- -------------------- -----------gc
+Drosophila_virilis   -------------------- -------------------- -----------gc
+Drosophila_kikkawai  -------------------- -------------------- -------------
+Drosophila_bipectinata -------------------- -------------------- -------------
+Drosophila_ananassae -------------------- -------------------- -------------
+Drosophila_yakuba    gctgcgacgatgtgttcaag tgcaacatgtgcggcgagaa gtgcgacggaccc
+Drosophila_simulans  -------------------- -------------------- -------------
+Drosophila_sechellia -------------------- -------------------- -------------
+_R_Drosophila_melanogaster -------------------- -------------------- -------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;
+END;
